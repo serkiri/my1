@@ -121,7 +121,7 @@ GNDA_PLL1                    : 54        : gnd    :                   :         
 GND                          : 55        : gnd    :                   :         :           :                
 GND*                         : 56        :        :                   :         : 4         :                
 GND*                         : 57        :        :                   :         : 4         :                
-CLK_20_ALT                   : 58        : input  : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : 58        :        :                   :         : 4         :                
 GND*                         : 59        :        :                   :         : 4         :                
 GND*                         : 60        :        :                   :         : 4         :                
 GND*                         : 61        :        :                   :         : 4         :                
@@ -178,7 +178,7 @@ GND                          : 111       : gnd    :                   :         
 GND*                         : 112       :        :                   :         : 3         :                
 GND*                         : 113       :        :                   :         : 3         :                
 GND*                         : 114       :        :                   :         : 3         :                
-CLK_20                       : 115       : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : 115       :        :                   :         : 3         :                
 GND*                         : 116       :        :                   :         : 3         :                
 GND*                         : 117       :        :                   :         : 3         :                
 GND*                         : 118       :        :                   :         : 3         :                
@@ -195,7 +195,7 @@ GND*                         : 128       :        :                   :         
 GND+                         : 129       :        :                   :         : 3         :                
 GND+                         : 130       :        :                   :         : 3         :                
 GND+                         : 131       :        :                   :         : 3         :                
-GND+                         : 132       :        :                   :         : 3         :                
+CLK_20                       : 132       : input  : 3.3-V LVTTL       :         : 3         : Y              
 GND*                         : 133       :        :                   :         : 3         :                
 GND*                         : 134       :        :                   :         : 3         :                
 GND*                         : 135       :        :                   :         : 3         :                
@@ -223,46 +223,46 @@ GND_PLL2                     : 156       : gnd    :                   :         
 VCCA_PLL2                    : 157       : power  :                   : 1.2V    :           :                
 GNDA_PLL2                    : 158       : gnd    :                   :         :           :                
 GND                          : 159       : gnd    :                   :         :           :                
-GND*                         : 160       :        :                   :         : 2         :                
-GND*                         : 161       :        :                   :         : 2         :                
-GND*                         : 162       :        :                   :         : 2         :                
-GND*                         : 163       :        :                   :         : 2         :                
-GND*                         : 164       :        :                   :         : 2         :                
-GND*                         : 165       :        :                   :         : 2         :                
+VIDEO_R[0]                   : 160       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_R[1]                   : 161       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_R[2]                   : 162       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_R[3]                   : 163       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_R[4]                   : 164       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_R[5]                   : 165       : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCIO2                       : 166       : power  :                   : 3.3V    : 2         :                
 GND                          : 167       : gnd    :                   :         :           :                
-GND*                         : 168       :        :                   :         : 2         :                
-GND*                         : 169       :        :                   :         : 2         :                
-GND*                         : 170       :        :                   :         : 2         :                
-GND*                         : 171       :        :                   :         : 2         :                
+VIDEO_R[6]                   : 168       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_R[7]                   : 169       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_G[0]                   : 170       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_G[1]                   : 171       : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCIO2                       : 172       : power  :                   : 3.3V    : 2         :                
-GND*                         : 173       :        :                   :         : 2         :                
+VIDEO_G[2]                   : 173       : output : 3.3-V LVTTL       :         : 2         : Y              
 GND                          : 174       : gnd    :                   :         :           :                
-GND*                         : 175       :        :                   :         : 2         :                
-GND*                         : 176       :        :                   :         : 2         :                
+VIDEO_G[3]                   : 175       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_G[4]                   : 176       : output : 3.3-V LVTTL       :         : 2         : Y              
 GND                          : 177       : gnd    :                   :         :           :                
 VCCINT                       : 178       : power  :                   : 1.2V    :           :                
-GND*                         : 179       :        :                   :         : 2         :                
-GND*                         : 180       :        :                   :         : 2         :                
-GND*                         : 181       :        :                   :         : 2         :                
-GND*                         : 182       :        :                   :         : 2         :                
+VIDEO_HSYNC                  : 179       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_G[5]                   : 180       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_VSYNC                  : 181       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_G[6]                   : 182       : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCIO2                       : 183       : power  :                   : 3.3V    : 2         :                
 GND                          : 184       : gnd    :                   :         :           :                
 GND*                         : 185       :        :                   :         : 2         :                
 GND                          : 186       : gnd    :                   :         :           :                
-GND*                         : 187       :        :                   :         : 2         :                
+VIDEO_G[7]                   : 187       : output : 3.3-V LVTTL       :         : 2         : Y              
 GND*                         : 188       :        :                   :         : 2         :                
-GND*                         : 189       :        :                   :         : 2         :                
+VIDEO_B[0]                   : 189       : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCINT                       : 190       : power  :                   : 1.2V    :           :                
-GND*                         : 191       :        :                   :         : 2         :                
-GND*                         : 192       :        :                   :         : 2         :                
-GND*                         : 193       :        :                   :         : 2         :                
+VIDEO_B[1]                   : 191       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_B[2]                   : 192       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_B[3]                   : 193       : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCIO2                       : 194       : power  :                   : 3.3V    : 2         :                
-GND*                         : 195       :        :                   :         : 2         :                
+VIDEO_B[4]                   : 195       : output : 3.3-V LVTTL       :         : 2         : Y              
 GND                          : 196       : gnd    :                   :         :           :                
-GND*                         : 197       :        :                   :         : 2         :                
-GND*                         : 198       :        :                   :         : 2         :                
-GND*                         : 199       :        :                   :         : 2         :                
+VIDEO_B[5]                   : 197       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_B[6]                   : 198       : output : 3.3-V LVTTL       :         : 2         : Y              
+VIDEO_B[7]                   : 199       : output : 3.3-V LVTTL       :         : 2         : Y              
 GND*                         : 200       :        :                   :         : 2         :                
 GND*                         : 201       :        :                   :         : 2         :                
 VCCIO2                       : 202       : power  :                   : 3.3V    : 2         :                

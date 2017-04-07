@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for my1_top
-Tue Apr 04 20:01:08 2017
+Fri Apr 07 13:26:47 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -16,19 +16,30 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   8. Slow Model Recovery Summary
   9. Slow Model Removal Summary
  10. Slow Model Minimum Pulse Width Summary
- 11. Slow Model Datasheet Report
- 12. Fast Model Setup Summary
- 13. Fast Model Hold Summary
- 14. Fast Model Recovery Summary
- 15. Fast Model Removal Summary
- 16. Fast Model Minimum Pulse Width Summary
- 17. Fast Model Datasheet Report
- 18. Multicorner Timing Analysis Summary
- 19. Clock Transfers
- 20. Report TCCS
- 21. Report RSKM
- 22. Unconstrained Paths
- 23. TimeQuest Timing Analyzer Messages
+ 11. Slow Model Setup: 'CLK_20'
+ 12. Slow Model Hold: 'CLK_20'
+ 13. Slow Model Minimum Pulse Width: 'CLK_20'
+ 14. Clock to Output Times
+ 15. Minimum Clock to Output Times
+ 16. Fast Model Setup Summary
+ 17. Fast Model Hold Summary
+ 18. Fast Model Recovery Summary
+ 19. Fast Model Removal Summary
+ 20. Fast Model Minimum Pulse Width Summary
+ 21. Fast Model Setup: 'CLK_20'
+ 22. Fast Model Hold: 'CLK_20'
+ 23. Fast Model Minimum Pulse Width: 'CLK_20'
+ 24. Clock to Output Times
+ 25. Minimum Clock to Output Times
+ 26. Multicorner Timing Analysis Summary
+ 27. Clock to Output Times
+ 28. Minimum Clock to Output Times
+ 29. Setup Transfers
+ 30. Hold Transfers
+ 31. Report TCCS
+ 32. Report RSKM
+ 33. Unconstrained Paths
+ 34. TimeQuest Timing Analyzer Messages
 
 
 
@@ -75,28 +86,41 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-----------
-; Clocks ;
-----------
-No clocks to report.
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                             ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets    ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
+; CLK_20     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLK_20 } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
 
 
----------------------------
-; Slow Model Fmax Summary ;
----------------------------
-No paths to report.
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 138.06 MHz ; 138.06 MHz      ; CLK_20     ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-----------------------------
-; Slow Model Setup Summary ;
-----------------------------
-No paths to report.
++---------------------------------+
+; Slow Model Setup Summary        ;
++--------+--------+---------------+
+; Clock  ; Slack  ; End Point TNS ;
++--------+--------+---------------+
+; CLK_20 ; -6.243 ; -443.795      ;
++--------+--------+---------------+
 
 
----------------------------
-; Slow Model Hold Summary ;
----------------------------
-No paths to report.
++--------------------------------+
+; Slow Model Hold Summary        ;
++--------+-------+---------------+
+; Clock  ; Slack ; End Point TNS ;
++--------+-------+---------------+
+; CLK_20 ; 0.753 ; 0.000         ;
++--------+-------+---------------+
 
 
 -------------------------------
@@ -111,28 +135,429 @@ No paths to report.
 No paths to report.
 
 
-------------------------------------------
++----------------------------------------+
 ; Slow Model Minimum Pulse Width Summary ;
-------------------------------------------
-No paths to report.
++--------+--------+----------------------+
+; Clock  ; Slack  ; End Point TNS        ;
++--------+--------+----------------------+
+; CLK_20 ; -1.941 ; -135.501             ;
++--------+--------+----------------------+
 
 
--------------------------------
-; Slow Model Datasheet Report ;
--------------------------------
-Nothing to report.
++------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'CLK_20'                                                                                 ;
++--------+-----------+-----------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+-----------------+--------------+-------------+--------------+------------+------------+
+; -6.243 ; hPos[6]   ; VIDEO_R[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.285      ;
+; -6.242 ; hPos[6]   ; VIDEO_R[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.284      ;
+; -6.241 ; hPos[6]   ; VIDEO_R[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.283      ;
+; -6.238 ; hPos[6]   ; VIDEO_R[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.280      ;
+; -6.183 ; hPos[5]   ; VIDEO_R[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.000      ; 7.223      ;
+; -6.182 ; hPos[5]   ; VIDEO_R[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.000      ; 7.222      ;
+; -6.181 ; hPos[5]   ; VIDEO_R[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.000      ; 7.221      ;
+; -6.178 ; hPos[5]   ; VIDEO_R[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.000      ; 7.218      ;
+; -6.161 ; hPos[11]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.203      ;
+; -6.160 ; hPos[11]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.202      ;
+; -6.159 ; hPos[11]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.201      ;
+; -6.157 ; hPos[11]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.199      ;
+; -6.132 ; hPos[11]  ; VIDEO_R[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.174      ;
+; -6.131 ; hPos[11]  ; VIDEO_R[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.173      ;
+; -6.130 ; hPos[11]  ; VIDEO_R[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.172      ;
+; -6.127 ; hPos[11]  ; VIDEO_R[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.169      ;
+; -6.101 ; vPos[22]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.130      ;
+; -6.100 ; vPos[22]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.129      ;
+; -6.099 ; vPos[22]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.128      ;
+; -6.097 ; vPos[22]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.126      ;
+; -6.036 ; vPos[11]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 7.063      ;
+; -6.035 ; vPos[11]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 7.062      ;
+; -6.034 ; vPos[11]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 7.061      ;
+; -6.032 ; vPos[11]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 7.059      ;
+; -6.029 ; hPos[23]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 7.074      ;
+; -6.028 ; hPos[23]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 7.073      ;
+; -6.027 ; hPos[23]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 7.072      ;
+; -6.025 ; hPos[23]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 7.070      ;
+; -6.000 ; hPos[23]  ; VIDEO_R[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 7.045      ;
+; -5.999 ; hPos[23]  ; VIDEO_R[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 7.044      ;
+; -5.998 ; hPos[23]  ; VIDEO_R[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 7.043      ;
+; -5.995 ; hPos[23]  ; VIDEO_R[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 7.040      ;
+; -5.994 ; vPos[21]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.023      ;
+; -5.993 ; vPos[21]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.022      ;
+; -5.992 ; vPos[21]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.021      ;
+; -5.991 ; vPos[20]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.020      ;
+; -5.990 ; vPos[21]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.019      ;
+; -5.990 ; vPos[20]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.019      ;
+; -5.989 ; vPos[20]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.018      ;
+; -5.987 ; vPos[20]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 7.016      ;
+; -5.986 ; hPos[2]   ; VIDEO_R[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.028      ;
+; -5.985 ; hPos[2]   ; VIDEO_R[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.027      ;
+; -5.984 ; hPos[2]   ; VIDEO_R[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.026      ;
+; -5.981 ; hPos[2]   ; VIDEO_R[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 7.023      ;
+; -5.958 ; vPos[19]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.987      ;
+; -5.957 ; vPos[19]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.986      ;
+; -5.956 ; vPos[19]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.985      ;
+; -5.954 ; vPos[19]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.983      ;
+; -5.944 ; hPos[3]   ; VIDEO_R[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 6.986      ;
+; -5.943 ; hPos[3]   ; VIDEO_R[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 6.985      ;
+; -5.943 ; vPos[14]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 6.970      ;
+; -5.942 ; hPos[3]   ; VIDEO_R[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 6.984      ;
+; -5.942 ; vPos[14]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 6.969      ;
+; -5.941 ; vPos[14]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 6.968      ;
+; -5.939 ; hPos[3]   ; VIDEO_R[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 6.981      ;
+; -5.939 ; vPos[14]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 6.966      ;
+; -5.897 ; vPos[25]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.926      ;
+; -5.896 ; vPos[25]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.925      ;
+; -5.895 ; vPos[25]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.924      ;
+; -5.893 ; vPos[25]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.922      ;
+; -5.874 ; vPos[10]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 6.901      ;
+; -5.873 ; vPos[10]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 6.900      ;
+; -5.872 ; vPos[10]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 6.899      ;
+; -5.870 ; vPos[10]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.013     ; 6.897      ;
+; -5.866 ; vPos[8]   ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.895      ;
+; -5.865 ; vPos[8]   ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.894      ;
+; -5.865 ; vPos[16]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.894      ;
+; -5.864 ; vPos[8]   ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.893      ;
+; -5.864 ; vPos[16]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.893      ;
+; -5.863 ; vPos[16]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.892      ;
+; -5.862 ; vPos[8]   ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.891      ;
+; -5.861 ; vPos[16]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.890      ;
+; -5.851 ; vPos[23]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.880      ;
+; -5.850 ; vPos[23]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.879      ;
+; -5.849 ; vPos[23]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.878      ;
+; -5.847 ; vPos[23]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; -0.011     ; 6.876      ;
+; -5.840 ; hPos[18]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.003      ; 6.883      ;
+; -5.839 ; hPos[18]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.003      ; 6.882      ;
+; -5.838 ; hPos[18]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.003      ; 6.881      ;
+; -5.836 ; hPos[18]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.003      ; 6.879      ;
+; -5.835 ; hPos[22]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 6.880      ;
+; -5.834 ; hPos[22]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 6.879      ;
+; -5.833 ; hPos[22]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 6.878      ;
+; -5.831 ; hPos[22]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 6.876      ;
+; -5.826 ; hPos[11]  ; vPos[2]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 6.878      ;
+; -5.826 ; hPos[11]  ; vPos[3]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 6.878      ;
+; -5.826 ; hPos[11]  ; vPos[9]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 6.878      ;
+; -5.826 ; hPos[11]  ; vPos[0]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 6.878      ;
+; -5.821 ; hPos[11]  ; vPos[1]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 6.876      ;
+; -5.821 ; hPos[11]  ; vPos[4]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 6.876      ;
+; -5.821 ; hPos[11]  ; vPos[5]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 6.876      ;
+; -5.821 ; hPos[11]  ; vPos[6]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 6.874      ;
+; -5.821 ; hPos[11]  ; vPos[7]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 6.876      ;
+; -5.821 ; hPos[11]  ; vPos[8]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 6.874      ;
+; -5.821 ; hPos[11]  ; vPos[10]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 6.876      ;
+; -5.821 ; hPos[11]  ; vPos[11]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 6.876      ;
+; -5.821 ; hPos[11]  ; vPos[12]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.014      ; 6.875      ;
+; -5.821 ; hPos[11]  ; vPos[13]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.014      ; 6.875      ;
+; -5.821 ; hPos[11]  ; vPos[14]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 6.876      ;
+; -5.821 ; hPos[11]  ; vPos[15]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 6.876      ;
++--------+-----------+-----------------+--------------+-------------+--------------+------------+------------+
 
 
-----------------------------
-; Fast Model Setup Summary ;
-----------------------------
-No paths to report.
++----------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'CLK_20'                                                                          ;
++-------+-----------+----------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+----------+--------------+-------------+--------------+------------+------------+
+; 0.753 ; hPos[31]  ; hPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.059      ;
+; 0.753 ; vPos[31]  ; vPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.059      ;
+; 1.164 ; hPos[23]  ; hPos[23] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.470      ;
+; 1.166 ; vPos[16]  ; vPos[16] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.472      ;
+; 1.171 ; hPos[1]   ; hPos[1]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.477      ;
+; 1.171 ; vPos[1]   ; vPos[1]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.477      ;
+; 1.172 ; hPos[11]  ; hPos[11] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.478      ;
+; 1.172 ; vPos[4]   ; vPos[4]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.478      ;
+; 1.172 ; vPos[7]   ; vPos[7]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.478      ;
+; 1.172 ; vPos[11]  ; vPos[11] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.478      ;
+; 1.172 ; vPos[14]  ; vPos[14] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.478      ;
+; 1.172 ; vPos[15]  ; vPos[15] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.478      ;
+; 1.175 ; hPos[17]  ; hPos[17] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.481      ;
+; 1.175 ; vPos[17]  ; vPos[17] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.481      ;
+; 1.176 ; hPos[2]   ; hPos[2]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.482      ;
+; 1.176 ; hPos[25]  ; hPos[25] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.482      ;
+; 1.176 ; vPos[18]  ; vPos[18] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.482      ;
+; 1.176 ; vPos[25]  ; vPos[25] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.482      ;
+; 1.177 ; hPos[4]   ; hPos[4]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; hPos[13]  ; hPos[13] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; hPos[14]  ; hPos[14] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; hPos[15]  ; hPos[15] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; hPos[27]  ; hPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; hPos[29]  ; hPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; hPos[30]  ; hPos[30] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; vPos[20]  ; vPos[20] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; vPos[23]  ; vPos[23] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; vPos[27]  ; vPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; vPos[29]  ; vPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.177 ; vPos[30]  ; vPos[30] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.483      ;
+; 1.186 ; hPos[7]   ; hPos[7]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.492      ;
+; 1.213 ; hPos[12]  ; hPos[12] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.519      ;
+; 1.213 ; hPos[22]  ; hPos[22] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.519      ;
+; 1.213 ; vPos[5]   ; vPos[5]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.519      ;
+; 1.213 ; vPos[10]  ; vPos[10] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.519      ;
+; 1.221 ; hPos[3]   ; hPos[3]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.527      ;
+; 1.221 ; hPos[6]   ; hPos[6]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.527      ;
+; 1.225 ; hPos[24]  ; hPos[24] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.531      ;
+; 1.225 ; hPos[26]  ; hPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.531      ;
+; 1.225 ; vPos[19]  ; vPos[19] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.531      ;
+; 1.225 ; vPos[24]  ; vPos[24] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.531      ;
+; 1.225 ; vPos[26]  ; vPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.531      ;
+; 1.226 ; vPos[21]  ; vPos[21] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.532      ;
+; 1.226 ; vPos[22]  ; vPos[22] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.532      ;
+; 1.226 ; vPos[28]  ; vPos[28] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.532      ;
+; 1.235 ; hPos[28]  ; hPos[28] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.541      ;
+; 1.645 ; vPos[16]  ; vPos[17] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.951      ;
+; 1.650 ; hPos[1]   ; hPos[2]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.956      ;
+; 1.651 ; vPos[14]  ; vPos[15] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.957      ;
+; 1.651 ; hPos[11]  ; hPos[12] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.957      ;
+; 1.651 ; vPos[4]   ; vPos[5]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.957      ;
+; 1.654 ; vPos[17]  ; vPos[18] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.960      ;
+; 1.655 ; hPos[2]   ; hPos[3]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.961      ;
+; 1.655 ; hPos[25]  ; hPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.961      ;
+; 1.655 ; vPos[18]  ; vPos[19] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.961      ;
+; 1.655 ; vPos[25]  ; vPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.961      ;
+; 1.656 ; hPos[30]  ; hPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.962      ;
+; 1.656 ; vPos[30]  ; vPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.962      ;
+; 1.656 ; hPos[13]  ; hPos[14] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.962      ;
+; 1.656 ; hPos[14]  ; hPos[15] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.962      ;
+; 1.656 ; hPos[29]  ; hPos[30] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.962      ;
+; 1.656 ; vPos[29]  ; vPos[30] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.962      ;
+; 1.656 ; vPos[20]  ; vPos[21] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.962      ;
+; 1.656 ; vPos[27]  ; vPos[28] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.962      ;
+; 1.656 ; hPos[27]  ; hPos[28] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.962      ;
+; 1.693 ; hPos[22]  ; hPos[23] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.999      ;
+; 1.693 ; vPos[10]  ; vPos[11] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.999      ;
+; 1.693 ; hPos[12]  ; hPos[13] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 1.999      ;
+; 1.701 ; hPos[3]   ; hPos[4]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.007      ;
+; 1.701 ; hPos[6]   ; hPos[7]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.007      ;
+; 1.705 ; hPos[24]  ; hPos[25] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.011      ;
+; 1.705 ; vPos[24]  ; vPos[25] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.011      ;
+; 1.705 ; hPos[26]  ; hPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.011      ;
+; 1.705 ; vPos[19]  ; vPos[20] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.011      ;
+; 1.705 ; vPos[26]  ; vPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.011      ;
+; 1.706 ; vPos[22]  ; vPos[23] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.012      ;
+; 1.706 ; vPos[28]  ; vPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.012      ;
+; 1.706 ; vPos[21]  ; vPos[22] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.012      ;
+; 1.715 ; hPos[28]  ; hPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.021      ;
+; 1.731 ; vPos[16]  ; vPos[18] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.037      ;
+; 1.736 ; hPos[1]   ; hPos[3]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.042      ;
+; 1.737 ; hPos[11]  ; hPos[13] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.043      ;
+; 1.740 ; vPos[17]  ; vPos[19] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.046      ;
+; 1.741 ; hPos[2]   ; hPos[4]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.047      ;
+; 1.741 ; hPos[25]  ; hPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.047      ;
+; 1.741 ; vPos[18]  ; vPos[20] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.047      ;
+; 1.741 ; vPos[25]  ; vPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.047      ;
+; 1.742 ; hPos[4]   ; hPos[6]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.048      ;
+; 1.742 ; hPos[29]  ; hPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.048      ;
+; 1.742 ; vPos[29]  ; vPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.048      ;
+; 1.742 ; hPos[13]  ; hPos[15] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.048      ;
+; 1.742 ; vPos[27]  ; vPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.048      ;
+; 1.742 ; vPos[20]  ; vPos[22] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.048      ;
+; 1.742 ; hPos[27]  ; hPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.048      ;
+; 1.753 ; hPos[23]  ; hPos[24] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.059      ;
+; 1.762 ; vPos[15]  ; vPos[16] ; CLK_20       ; CLK_20      ; 0.000        ; -0.002     ; 2.066      ;
+; 1.766 ; vPos[23]  ; vPos[24] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.072      ;
+; 1.779 ; vPos[5]   ; vPos[7]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.085      ;
+; 1.779 ; hPos[12]  ; hPos[14] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.085      ;
+; 1.791 ; hPos[24]  ; hPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 2.097      ;
++-------+-----------+----------+--------------+-------------+--------------+------------+------------+
 
 
----------------------------
-; Fast Model Hold Summary ;
----------------------------
-No paths to report.
++----------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'CLK_20'                                                           ;
++--------+--------------+----------------+------------------+--------+------------+------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target           ;
++--------+--------------+----------------+------------------+--------+------------+------------------+
+; -1.941 ; 1.000        ; 2.941          ; Port Rate        ; CLK_20 ; Rise       ; CLK_20           ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[0]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[0]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[1]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[1]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[2]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[2]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[3]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[3]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[4]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[4]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[5]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[5]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[6]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[6]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[7]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[7]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[0]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[0]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[1]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[1]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[2]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[2]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[3]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[3]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[4]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[4]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[5]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[5]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[6]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[6]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[7]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[7]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_HSYNC~reg0 ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_HSYNC~reg0 ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[0]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[0]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[1]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[1]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[2]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[2]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[3]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[3]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[4]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[4]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[5]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[5]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[6]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[6]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[7]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[7]~reg0  ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_VSYNC~reg0 ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_VSYNC~reg0 ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[0]          ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[0]          ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[10]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[10]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[11]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[11]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[12]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[12]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[13]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[13]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[14]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[14]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[15]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[15]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[16]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[16]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[17]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[17]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[18]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[18]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[19]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[19]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[1]          ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[1]          ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[20]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[20]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[21]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[21]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[22]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[22]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[23]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[23]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[24]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[24]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[25]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[25]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[26]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[26]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[27]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[27]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[28]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[28]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[29]         ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[29]         ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[2]          ;
+; -0.742 ; 0.500        ; 1.242          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[2]          ;
+; -0.742 ; 0.500        ; 1.242          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[30]         ;
++--------+--------------+----------------+------------------+--------+------------+------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; VIDEO_B[*]  ; CLK_20     ; 8.521 ; 8.521 ; Rise       ; CLK_20          ;
+;  VIDEO_B[0] ; CLK_20     ; 7.789 ; 7.789 ; Rise       ; CLK_20          ;
+;  VIDEO_B[1] ; CLK_20     ; 7.791 ; 7.791 ; Rise       ; CLK_20          ;
+;  VIDEO_B[2] ; CLK_20     ; 8.167 ; 8.167 ; Rise       ; CLK_20          ;
+;  VIDEO_B[3] ; CLK_20     ; 8.161 ; 8.161 ; Rise       ; CLK_20          ;
+;  VIDEO_B[4] ; CLK_20     ; 8.146 ; 8.146 ; Rise       ; CLK_20          ;
+;  VIDEO_B[5] ; CLK_20     ; 8.508 ; 8.508 ; Rise       ; CLK_20          ;
+;  VIDEO_B[6] ; CLK_20     ; 8.518 ; 8.518 ; Rise       ; CLK_20          ;
+;  VIDEO_B[7] ; CLK_20     ; 8.521 ; 8.521 ; Rise       ; CLK_20          ;
+; VIDEO_G[*]  ; CLK_20     ; 8.462 ; 8.462 ; Rise       ; CLK_20          ;
+;  VIDEO_G[0] ; CLK_20     ; 8.452 ; 8.452 ; Rise       ; CLK_20          ;
+;  VIDEO_G[1] ; CLK_20     ; 8.462 ; 8.462 ; Rise       ; CLK_20          ;
+;  VIDEO_G[2] ; CLK_20     ; 8.088 ; 8.088 ; Rise       ; CLK_20          ;
+;  VIDEO_G[3] ; CLK_20     ; 8.103 ; 8.103 ; Rise       ; CLK_20          ;
+;  VIDEO_G[4] ; CLK_20     ; 8.135 ; 8.135 ; Rise       ; CLK_20          ;
+;  VIDEO_G[5] ; CLK_20     ; 7.826 ; 7.826 ; Rise       ; CLK_20          ;
+;  VIDEO_G[6] ; CLK_20     ; 7.398 ; 7.398 ; Rise       ; CLK_20          ;
+;  VIDEO_G[7] ; CLK_20     ; 7.778 ; 7.778 ; Rise       ; CLK_20          ;
+; VIDEO_HSYNC ; CLK_20     ; 7.402 ; 7.402 ; Rise       ; CLK_20          ;
+; VIDEO_R[*]  ; CLK_20     ; 8.828 ; 8.828 ; Rise       ; CLK_20          ;
+;  VIDEO_R[0] ; CLK_20     ; 8.806 ; 8.806 ; Rise       ; CLK_20          ;
+;  VIDEO_R[1] ; CLK_20     ; 8.301 ; 8.301 ; Rise       ; CLK_20          ;
+;  VIDEO_R[2] ; CLK_20     ; 8.650 ; 8.650 ; Rise       ; CLK_20          ;
+;  VIDEO_R[3] ; CLK_20     ; 8.478 ; 8.478 ; Rise       ; CLK_20          ;
+;  VIDEO_R[4] ; CLK_20     ; 8.828 ; 8.828 ; Rise       ; CLK_20          ;
+;  VIDEO_R[5] ; CLK_20     ; 8.451 ; 8.451 ; Rise       ; CLK_20          ;
+;  VIDEO_R[6] ; CLK_20     ; 8.350 ; 8.350 ; Rise       ; CLK_20          ;
+;  VIDEO_R[7] ; CLK_20     ; 8.492 ; 8.492 ; Rise       ; CLK_20          ;
+; VIDEO_VSYNC ; CLK_20     ; 7.390 ; 7.390 ; Rise       ; CLK_20          ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; VIDEO_B[*]  ; CLK_20     ; 7.789 ; 7.789 ; Rise       ; CLK_20          ;
+;  VIDEO_B[0] ; CLK_20     ; 7.789 ; 7.789 ; Rise       ; CLK_20          ;
+;  VIDEO_B[1] ; CLK_20     ; 7.791 ; 7.791 ; Rise       ; CLK_20          ;
+;  VIDEO_B[2] ; CLK_20     ; 8.167 ; 8.167 ; Rise       ; CLK_20          ;
+;  VIDEO_B[3] ; CLK_20     ; 8.161 ; 8.161 ; Rise       ; CLK_20          ;
+;  VIDEO_B[4] ; CLK_20     ; 8.146 ; 8.146 ; Rise       ; CLK_20          ;
+;  VIDEO_B[5] ; CLK_20     ; 8.508 ; 8.508 ; Rise       ; CLK_20          ;
+;  VIDEO_B[6] ; CLK_20     ; 8.518 ; 8.518 ; Rise       ; CLK_20          ;
+;  VIDEO_B[7] ; CLK_20     ; 8.521 ; 8.521 ; Rise       ; CLK_20          ;
+; VIDEO_G[*]  ; CLK_20     ; 7.398 ; 7.398 ; Rise       ; CLK_20          ;
+;  VIDEO_G[0] ; CLK_20     ; 8.452 ; 8.452 ; Rise       ; CLK_20          ;
+;  VIDEO_G[1] ; CLK_20     ; 8.462 ; 8.462 ; Rise       ; CLK_20          ;
+;  VIDEO_G[2] ; CLK_20     ; 8.088 ; 8.088 ; Rise       ; CLK_20          ;
+;  VIDEO_G[3] ; CLK_20     ; 8.103 ; 8.103 ; Rise       ; CLK_20          ;
+;  VIDEO_G[4] ; CLK_20     ; 8.135 ; 8.135 ; Rise       ; CLK_20          ;
+;  VIDEO_G[5] ; CLK_20     ; 7.826 ; 7.826 ; Rise       ; CLK_20          ;
+;  VIDEO_G[6] ; CLK_20     ; 7.398 ; 7.398 ; Rise       ; CLK_20          ;
+;  VIDEO_G[7] ; CLK_20     ; 7.778 ; 7.778 ; Rise       ; CLK_20          ;
+; VIDEO_HSYNC ; CLK_20     ; 7.402 ; 7.402 ; Rise       ; CLK_20          ;
+; VIDEO_R[*]  ; CLK_20     ; 8.301 ; 8.301 ; Rise       ; CLK_20          ;
+;  VIDEO_R[0] ; CLK_20     ; 8.806 ; 8.806 ; Rise       ; CLK_20          ;
+;  VIDEO_R[1] ; CLK_20     ; 8.301 ; 8.301 ; Rise       ; CLK_20          ;
+;  VIDEO_R[2] ; CLK_20     ; 8.650 ; 8.650 ; Rise       ; CLK_20          ;
+;  VIDEO_R[3] ; CLK_20     ; 8.478 ; 8.478 ; Rise       ; CLK_20          ;
+;  VIDEO_R[4] ; CLK_20     ; 8.828 ; 8.828 ; Rise       ; CLK_20          ;
+;  VIDEO_R[5] ; CLK_20     ; 8.451 ; 8.451 ; Rise       ; CLK_20          ;
+;  VIDEO_R[6] ; CLK_20     ; 8.350 ; 8.350 ; Rise       ; CLK_20          ;
+;  VIDEO_R[7] ; CLK_20     ; 8.492 ; 8.492 ; Rise       ; CLK_20          ;
+; VIDEO_VSYNC ; CLK_20     ; 7.390 ; 7.390 ; Rise       ; CLK_20          ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------+
+; Fast Model Setup Summary        ;
++--------+--------+---------------+
+; Clock  ; Slack  ; End Point TNS ;
++--------+--------+---------------+
+; CLK_20 ; -1.298 ; -88.971       ;
++--------+--------+---------------+
+
+
++--------------------------------+
+; Fast Model Hold Summary        ;
++--------+-------+---------------+
+; Clock  ; Slack ; End Point TNS ;
++--------+-------+---------------+
+; CLK_20 ; 0.243 ; 0.000         ;
++--------+-------+---------------+
 
 
 -------------------------------
@@ -147,32 +572,517 @@ No paths to report.
 No paths to report.
 
 
-------------------------------------------
++----------------------------------------+
 ; Fast Model Minimum Pulse Width Summary ;
-------------------------------------------
-No paths to report.
++--------+--------+----------------------+
+; Clock  ; Slack  ; End Point TNS        ;
++--------+--------+----------------------+
+; CLK_20 ; -1.380 ; -91.380              ;
++--------+--------+----------------------+
 
 
--------------------------------
-; Fast Model Datasheet Report ;
--------------------------------
-Nothing to report.
++------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'CLK_20'                                                                                 ;
++--------+-----------+-----------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node ; To Node         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------+-----------------+--------------+-------------+--------------+------------+------------+
+; -1.298 ; hPos[23]  ; vPos[2]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.343      ;
+; -1.298 ; hPos[23]  ; vPos[3]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.343      ;
+; -1.298 ; hPos[23]  ; vPos[9]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.343      ;
+; -1.298 ; hPos[23]  ; vPos[0]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.343      ;
+; -1.297 ; hPos[23]  ; vPos[1]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.345      ;
+; -1.297 ; hPos[23]  ; vPos[4]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.345      ;
+; -1.297 ; hPos[23]  ; vPos[5]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.345      ;
+; -1.297 ; hPos[23]  ; vPos[7]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.345      ;
+; -1.297 ; hPos[23]  ; vPos[10]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.345      ;
+; -1.297 ; hPos[23]  ; vPos[11]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.345      ;
+; -1.297 ; hPos[23]  ; vPos[14]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.345      ;
+; -1.297 ; hPos[23]  ; vPos[15]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.345      ;
+; -1.296 ; hPos[23]  ; vPos[6]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.343      ;
+; -1.296 ; hPos[23]  ; vPos[8]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.343      ;
+; -1.295 ; hPos[23]  ; vPos[12]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.343      ;
+; -1.295 ; hPos[23]  ; vPos[13]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.343      ;
+; -1.295 ; hPos[23]  ; vPos[16]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[17]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[18]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[19]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[20]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[21]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[22]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[23]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[24]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[25]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[26]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[27]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[28]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[29]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[30]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.295 ; hPos[23]  ; vPos[31]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.015      ; 2.342      ;
+; -1.287 ; hPos[23]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.008      ; 2.327      ;
+; -1.287 ; hPos[23]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.008      ; 2.327      ;
+; -1.286 ; hPos[23]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.008      ; 2.326      ;
+; -1.282 ; hPos[23]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.008      ; 2.322      ;
+; -1.282 ; hPos[11]  ; vPos[2]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.010      ; 2.324      ;
+; -1.282 ; hPos[11]  ; vPos[3]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.010      ; 2.324      ;
+; -1.282 ; hPos[11]  ; vPos[9]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.010      ; 2.324      ;
+; -1.282 ; hPos[11]  ; vPos[0]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.010      ; 2.324      ;
+; -1.281 ; hPos[11]  ; vPos[1]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.326      ;
+; -1.281 ; hPos[11]  ; vPos[4]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.326      ;
+; -1.281 ; hPos[11]  ; vPos[5]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.326      ;
+; -1.281 ; hPos[11]  ; vPos[7]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.326      ;
+; -1.281 ; hPos[11]  ; vPos[10]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.326      ;
+; -1.281 ; hPos[11]  ; vPos[11]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.326      ;
+; -1.281 ; hPos[11]  ; vPos[14]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.326      ;
+; -1.281 ; hPos[11]  ; vPos[15]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.326      ;
+; -1.280 ; hPos[11]  ; vPos[6]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.324      ;
+; -1.280 ; hPos[11]  ; vPos[8]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.324      ;
+; -1.279 ; hPos[11]  ; vPos[12]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.324      ;
+; -1.279 ; hPos[11]  ; vPos[13]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.324      ;
+; -1.279 ; hPos[11]  ; vPos[16]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[17]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[18]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[19]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[20]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[21]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[22]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[23]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[24]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[25]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[26]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[27]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[28]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[29]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[30]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.279 ; hPos[11]  ; vPos[31]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.012      ; 2.323      ;
+; -1.271 ; hPos[11]  ; VIDEO_G[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.308      ;
+; -1.271 ; hPos[11]  ; VIDEO_G[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.308      ;
+; -1.270 ; hPos[11]  ; VIDEO_G[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.307      ;
+; -1.266 ; hPos[11]  ; VIDEO_G[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.303      ;
+; -1.263 ; hPos[23]  ; VIDEO_R[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.008      ; 2.303      ;
+; -1.262 ; hPos[23]  ; VIDEO_R[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.008      ; 2.302      ;
+; -1.262 ; hPos[23]  ; VIDEO_R[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.008      ; 2.302      ;
+; -1.258 ; hPos[23]  ; VIDEO_R[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.008      ; 2.298      ;
+; -1.252 ; hPos[6]   ; VIDEO_R[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.289      ;
+; -1.251 ; hPos[6]   ; VIDEO_R[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.288      ;
+; -1.251 ; hPos[6]   ; VIDEO_R[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.288      ;
+; -1.247 ; hPos[11]  ; VIDEO_R[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.284      ;
+; -1.247 ; hPos[6]   ; VIDEO_R[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.284      ;
+; -1.246 ; hPos[11]  ; VIDEO_R[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.283      ;
+; -1.246 ; hPos[11]  ; VIDEO_R[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.283      ;
+; -1.242 ; hPos[11]  ; VIDEO_R[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.005      ; 2.279      ;
+; -1.229 ; hPos[5]   ; VIDEO_R[3]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 2.263      ;
+; -1.228 ; hPos[5]   ; VIDEO_R[0]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 2.262      ;
+; -1.228 ; hPos[5]   ; VIDEO_R[1]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 2.262      ;
+; -1.224 ; hPos[5]   ; VIDEO_R[2]~reg0 ; CLK_20       ; CLK_20      ; 1.000        ; 0.002      ; 2.258      ;
+; -1.212 ; hPos[22]  ; vPos[2]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.257      ;
+; -1.212 ; hPos[22]  ; vPos[3]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.257      ;
+; -1.212 ; hPos[22]  ; vPos[9]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.257      ;
+; -1.212 ; hPos[22]  ; vPos[0]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.013      ; 2.257      ;
+; -1.211 ; hPos[22]  ; vPos[1]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.259      ;
+; -1.211 ; hPos[22]  ; vPos[4]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.259      ;
+; -1.211 ; hPos[22]  ; vPos[5]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.259      ;
+; -1.211 ; hPos[22]  ; vPos[7]         ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.259      ;
+; -1.211 ; hPos[22]  ; vPos[10]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.259      ;
+; -1.211 ; hPos[22]  ; vPos[11]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.259      ;
+; -1.211 ; hPos[22]  ; vPos[14]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.259      ;
+; -1.211 ; hPos[22]  ; vPos[15]        ; CLK_20       ; CLK_20      ; 1.000        ; 0.016      ; 2.259      ;
++--------+-----------+-----------------+--------------+-------------+--------------+------------+------------+
 
 
-+----------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                        ;
-+------------------+-------+------+----------+---------+---------------------+
-; Clock            ; Setup ; Hold ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+-------+------+----------+---------+---------------------+
-; Worst-case Slack ; N/A   ; N/A  ; N/A      ; N/A     ; N/A                 ;
-; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; 0.0                 ;
-+------------------+-------+------+----------+---------+---------------------+
++----------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'CLK_20'                                                                          ;
++-------+-----------+----------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node ; To Node  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------+----------+--------------+-------------+--------------+------------+------------+
+; 0.243 ; hPos[31]  ; hPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.395      ;
+; 0.243 ; vPos[31]  ; vPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.395      ;
+; 0.355 ; vPos[16]  ; vPos[16] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.507      ;
+; 0.356 ; hPos[23]  ; hPos[23] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.508      ;
+; 0.357 ; hPos[1]   ; hPos[1]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.509      ;
+; 0.357 ; vPos[1]   ; vPos[1]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.509      ;
+; 0.358 ; hPos[11]  ; hPos[11] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; vPos[4]   ; vPos[4]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; vPos[7]   ; vPos[7]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; vPos[11]  ; vPos[11] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; vPos[14]  ; vPos[14] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; vPos[15]  ; vPos[15] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.510      ;
+; 0.359 ; hPos[17]  ; hPos[17] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; vPos[17]  ; vPos[17] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.511      ;
+; 0.360 ; hPos[2]   ; hPos[2]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; hPos[25]  ; hPos[25] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; hPos[27]  ; hPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; vPos[18]  ; vPos[18] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; vPos[25]  ; vPos[25] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; vPos[27]  ; vPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.512      ;
+; 0.361 ; hPos[4]   ; hPos[4]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; hPos[13]  ; hPos[13] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; hPos[14]  ; hPos[14] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; hPos[15]  ; hPos[15] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; hPos[29]  ; hPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; hPos[30]  ; hPos[30] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; vPos[20]  ; vPos[20] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; vPos[23]  ; vPos[23] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; vPos[29]  ; vPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; vPos[30]  ; vPos[30] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.513      ;
+; 0.364 ; hPos[7]   ; hPos[7]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.516      ;
+; 0.367 ; hPos[12]  ; hPos[12] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.519      ;
+; 0.367 ; hPos[22]  ; hPos[22] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.519      ;
+; 0.367 ; vPos[5]   ; vPos[5]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.519      ;
+; 0.367 ; vPos[10]  ; vPos[10] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.519      ;
+; 0.369 ; hPos[3]   ; hPos[3]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.521      ;
+; 0.369 ; hPos[6]   ; hPos[6]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.521      ;
+; 0.371 ; hPos[24]  ; hPos[24] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; hPos[26]  ; hPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; vPos[19]  ; vPos[19] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; vPos[24]  ; vPos[24] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; vPos[26]  ; vPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.523      ;
+; 0.372 ; vPos[21]  ; vPos[21] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; vPos[22]  ; vPos[22] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; vPos[28]  ; vPos[28] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.524      ;
+; 0.375 ; hPos[28]  ; hPos[28] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.527      ;
+; 0.493 ; vPos[16]  ; vPos[17] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.645      ;
+; 0.495 ; hPos[1]   ; hPos[2]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.647      ;
+; 0.496 ; vPos[14]  ; vPos[15] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.648      ;
+; 0.496 ; hPos[11]  ; hPos[12] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.648      ;
+; 0.496 ; vPos[4]   ; vPos[5]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.648      ;
+; 0.497 ; vPos[17]  ; vPos[18] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.649      ;
+; 0.498 ; hPos[2]   ; hPos[3]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.650      ;
+; 0.498 ; hPos[25]  ; hPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.650      ;
+; 0.498 ; vPos[18]  ; vPos[19] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.650      ;
+; 0.498 ; vPos[25]  ; vPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.650      ;
+; 0.498 ; vPos[27]  ; vPos[28] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.650      ;
+; 0.498 ; hPos[27]  ; hPos[28] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.650      ;
+; 0.499 ; hPos[30]  ; hPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.651      ;
+; 0.499 ; vPos[30]  ; vPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.651      ;
+; 0.499 ; hPos[13]  ; hPos[14] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.651      ;
+; 0.499 ; hPos[14]  ; hPos[15] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.651      ;
+; 0.499 ; hPos[29]  ; hPos[30] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.651      ;
+; 0.499 ; vPos[29]  ; vPos[30] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.651      ;
+; 0.499 ; vPos[20]  ; vPos[21] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.651      ;
+; 0.507 ; hPos[22]  ; hPos[23] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.659      ;
+; 0.507 ; vPos[10]  ; vPos[11] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.659      ;
+; 0.507 ; hPos[12]  ; hPos[13] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.659      ;
+; 0.509 ; hPos[3]   ; hPos[4]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.661      ;
+; 0.509 ; hPos[6]   ; hPos[7]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.661      ;
+; 0.511 ; hPos[24]  ; hPos[25] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.663      ;
+; 0.511 ; hPos[26]  ; hPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.663      ;
+; 0.511 ; vPos[24]  ; vPos[25] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.663      ;
+; 0.511 ; vPos[26]  ; vPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.663      ;
+; 0.511 ; vPos[19]  ; vPos[20] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.663      ;
+; 0.512 ; vPos[22]  ; vPos[23] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.664      ;
+; 0.512 ; vPos[28]  ; vPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.664      ;
+; 0.512 ; vPos[21]  ; vPos[22] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.664      ;
+; 0.515 ; hPos[28]  ; hPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.667      ;
+; 0.528 ; vPos[16]  ; vPos[18] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.680      ;
+; 0.530 ; hPos[1]   ; hPos[3]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.682      ;
+; 0.531 ; hPos[11]  ; hPos[13] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.683      ;
+; 0.532 ; vPos[17]  ; vPos[19] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.684      ;
+; 0.533 ; hPos[2]   ; hPos[4]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.685      ;
+; 0.533 ; hPos[25]  ; hPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.685      ;
+; 0.533 ; vPos[25]  ; vPos[27] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.685      ;
+; 0.533 ; vPos[18]  ; vPos[20] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.685      ;
+; 0.533 ; vPos[27]  ; vPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.685      ;
+; 0.533 ; hPos[27]  ; hPos[29] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.685      ;
+; 0.534 ; hPos[4]   ; hPos[6]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.686      ;
+; 0.534 ; hPos[29]  ; hPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.686      ;
+; 0.534 ; vPos[29]  ; vPos[31] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.686      ;
+; 0.534 ; hPos[13]  ; hPos[15] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.686      ;
+; 0.534 ; vPos[20]  ; vPos[22] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.686      ;
+; 0.542 ; vPos[5]   ; vPos[7]  ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.694      ;
+; 0.542 ; hPos[12]  ; hPos[14] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.694      ;
+; 0.544 ; vPos[15]  ; vPos[16] ; CLK_20       ; CLK_20      ; 0.000        ; -0.001     ; 0.695      ;
+; 0.546 ; hPos[24]  ; hPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.698      ;
+; 0.546 ; vPos[24]  ; vPos[26] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.698      ;
+; 0.546 ; vPos[26]  ; vPos[28] ; CLK_20       ; CLK_20      ; 0.000        ; 0.000      ; 0.698      ;
++-------+-----------+----------+--------------+-------------+--------------+------------+------------+
 
 
--------------------
-; Clock Transfers ;
--------------------
-Nothing to report.
++----------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'CLK_20'                                                           ;
++--------+--------------+----------------+------------------+--------+------------+------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target           ;
++--------+--------------+----------------+------------------+--------+------------+------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; CLK_20 ; Rise       ; CLK_20           ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[0]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[0]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[1]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[1]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[2]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[2]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[3]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[3]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[4]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[4]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[5]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[5]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[6]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[6]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_B[7]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_B[7]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[0]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[0]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[1]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[1]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[2]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[2]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[3]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[3]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[4]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[4]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[5]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[5]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[6]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[6]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_G[7]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_G[7]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_HSYNC~reg0 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_HSYNC~reg0 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[0]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[0]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[1]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[1]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[2]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[2]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[3]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[3]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[4]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[4]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[5]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[5]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[6]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[6]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_R[7]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_R[7]~reg0  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; VIDEO_VSYNC~reg0 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; VIDEO_VSYNC~reg0 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[0]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[0]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[10]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[10]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[11]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[11]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[12]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[12]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[13]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[13]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[14]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[14]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[15]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[15]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[16]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[16]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[17]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[17]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[18]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[18]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[19]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[19]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[1]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[1]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[20]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[20]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[21]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[21]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[22]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[22]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[23]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[23]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[24]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[24]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[25]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[25]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[26]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[26]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[27]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[27]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[28]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[28]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[29]         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[29]         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[2]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLK_20 ; Rise       ; hPos[2]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLK_20 ; Rise       ; hPos[30]         ;
++--------+--------------+----------------+------------------+--------+------------+------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; VIDEO_B[*]  ; CLK_20     ; 3.931 ; 3.931 ; Rise       ; CLK_20          ;
+;  VIDEO_B[0] ; CLK_20     ; 3.702 ; 3.702 ; Rise       ; CLK_20          ;
+;  VIDEO_B[1] ; CLK_20     ; 3.704 ; 3.704 ; Rise       ; CLK_20          ;
+;  VIDEO_B[2] ; CLK_20     ; 3.815 ; 3.815 ; Rise       ; CLK_20          ;
+;  VIDEO_B[3] ; CLK_20     ; 3.811 ; 3.811 ; Rise       ; CLK_20          ;
+;  VIDEO_B[4] ; CLK_20     ; 3.795 ; 3.795 ; Rise       ; CLK_20          ;
+;  VIDEO_B[5] ; CLK_20     ; 3.913 ; 3.913 ; Rise       ; CLK_20          ;
+;  VIDEO_B[6] ; CLK_20     ; 3.924 ; 3.924 ; Rise       ; CLK_20          ;
+;  VIDEO_B[7] ; CLK_20     ; 3.931 ; 3.931 ; Rise       ; CLK_20          ;
+; VIDEO_G[*]  ; CLK_20     ; 3.886 ; 3.886 ; Rise       ; CLK_20          ;
+;  VIDEO_G[0] ; CLK_20     ; 3.883 ; 3.883 ; Rise       ; CLK_20          ;
+;  VIDEO_G[1] ; CLK_20     ; 3.886 ; 3.886 ; Rise       ; CLK_20          ;
+;  VIDEO_G[2] ; CLK_20     ; 3.759 ; 3.759 ; Rise       ; CLK_20          ;
+;  VIDEO_G[3] ; CLK_20     ; 3.769 ; 3.769 ; Rise       ; CLK_20          ;
+;  VIDEO_G[4] ; CLK_20     ; 3.789 ; 3.789 ; Rise       ; CLK_20          ;
+;  VIDEO_G[5] ; CLK_20     ; 3.717 ; 3.717 ; Rise       ; CLK_20          ;
+;  VIDEO_G[6] ; CLK_20     ; 3.559 ; 3.559 ; Rise       ; CLK_20          ;
+;  VIDEO_G[7] ; CLK_20     ; 3.691 ; 3.691 ; Rise       ; CLK_20          ;
+; VIDEO_HSYNC ; CLK_20     ; 3.568 ; 3.568 ; Rise       ; CLK_20          ;
+; VIDEO_R[*]  ; CLK_20     ; 4.000 ; 4.000 ; Rise       ; CLK_20          ;
+;  VIDEO_R[0] ; CLK_20     ; 3.982 ; 3.982 ; Rise       ; CLK_20          ;
+;  VIDEO_R[1] ; CLK_20     ; 3.869 ; 3.869 ; Rise       ; CLK_20          ;
+;  VIDEO_R[2] ; CLK_20     ; 3.972 ; 3.972 ; Rise       ; CLK_20          ;
+;  VIDEO_R[3] ; CLK_20     ; 3.899 ; 3.899 ; Rise       ; CLK_20          ;
+;  VIDEO_R[4] ; CLK_20     ; 4.000 ; 4.000 ; Rise       ; CLK_20          ;
+;  VIDEO_R[5] ; CLK_20     ; 3.882 ; 3.882 ; Rise       ; CLK_20          ;
+;  VIDEO_R[6] ; CLK_20     ; 3.887 ; 3.887 ; Rise       ; CLK_20          ;
+;  VIDEO_R[7] ; CLK_20     ; 3.898 ; 3.898 ; Rise       ; CLK_20          ;
+; VIDEO_VSYNC ; CLK_20     ; 3.562 ; 3.562 ; Rise       ; CLK_20          ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; VIDEO_B[*]  ; CLK_20     ; 3.702 ; 3.702 ; Rise       ; CLK_20          ;
+;  VIDEO_B[0] ; CLK_20     ; 3.702 ; 3.702 ; Rise       ; CLK_20          ;
+;  VIDEO_B[1] ; CLK_20     ; 3.704 ; 3.704 ; Rise       ; CLK_20          ;
+;  VIDEO_B[2] ; CLK_20     ; 3.815 ; 3.815 ; Rise       ; CLK_20          ;
+;  VIDEO_B[3] ; CLK_20     ; 3.811 ; 3.811 ; Rise       ; CLK_20          ;
+;  VIDEO_B[4] ; CLK_20     ; 3.795 ; 3.795 ; Rise       ; CLK_20          ;
+;  VIDEO_B[5] ; CLK_20     ; 3.913 ; 3.913 ; Rise       ; CLK_20          ;
+;  VIDEO_B[6] ; CLK_20     ; 3.924 ; 3.924 ; Rise       ; CLK_20          ;
+;  VIDEO_B[7] ; CLK_20     ; 3.931 ; 3.931 ; Rise       ; CLK_20          ;
+; VIDEO_G[*]  ; CLK_20     ; 3.559 ; 3.559 ; Rise       ; CLK_20          ;
+;  VIDEO_G[0] ; CLK_20     ; 3.883 ; 3.883 ; Rise       ; CLK_20          ;
+;  VIDEO_G[1] ; CLK_20     ; 3.886 ; 3.886 ; Rise       ; CLK_20          ;
+;  VIDEO_G[2] ; CLK_20     ; 3.759 ; 3.759 ; Rise       ; CLK_20          ;
+;  VIDEO_G[3] ; CLK_20     ; 3.769 ; 3.769 ; Rise       ; CLK_20          ;
+;  VIDEO_G[4] ; CLK_20     ; 3.789 ; 3.789 ; Rise       ; CLK_20          ;
+;  VIDEO_G[5] ; CLK_20     ; 3.717 ; 3.717 ; Rise       ; CLK_20          ;
+;  VIDEO_G[6] ; CLK_20     ; 3.559 ; 3.559 ; Rise       ; CLK_20          ;
+;  VIDEO_G[7] ; CLK_20     ; 3.691 ; 3.691 ; Rise       ; CLK_20          ;
+; VIDEO_HSYNC ; CLK_20     ; 3.568 ; 3.568 ; Rise       ; CLK_20          ;
+; VIDEO_R[*]  ; CLK_20     ; 3.869 ; 3.869 ; Rise       ; CLK_20          ;
+;  VIDEO_R[0] ; CLK_20     ; 3.982 ; 3.982 ; Rise       ; CLK_20          ;
+;  VIDEO_R[1] ; CLK_20     ; 3.869 ; 3.869 ; Rise       ; CLK_20          ;
+;  VIDEO_R[2] ; CLK_20     ; 3.972 ; 3.972 ; Rise       ; CLK_20          ;
+;  VIDEO_R[3] ; CLK_20     ; 3.899 ; 3.899 ; Rise       ; CLK_20          ;
+;  VIDEO_R[4] ; CLK_20     ; 4.000 ; 4.000 ; Rise       ; CLK_20          ;
+;  VIDEO_R[5] ; CLK_20     ; 3.882 ; 3.882 ; Rise       ; CLK_20          ;
+;  VIDEO_R[6] ; CLK_20     ; 3.887 ; 3.887 ; Rise       ; CLK_20          ;
+;  VIDEO_R[7] ; CLK_20     ; 3.898 ; 3.898 ; Rise       ; CLK_20          ;
+; VIDEO_VSYNC ; CLK_20     ; 3.562 ; 3.562 ; Rise       ; CLK_20          ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -6.243   ; 0.243 ; N/A      ; N/A     ; -1.941              ;
+;  CLK_20          ; -6.243   ; 0.243 ; N/A      ; N/A     ; -1.941              ;
+; Design-wide TNS  ; -443.795 ; 0.0   ; 0.0      ; 0.0     ; -135.501            ;
+;  CLK_20          ; -443.795 ; 0.000 ; N/A      ; N/A     ; -135.501            ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; VIDEO_B[*]  ; CLK_20     ; 8.521 ; 8.521 ; Rise       ; CLK_20          ;
+;  VIDEO_B[0] ; CLK_20     ; 7.789 ; 7.789 ; Rise       ; CLK_20          ;
+;  VIDEO_B[1] ; CLK_20     ; 7.791 ; 7.791 ; Rise       ; CLK_20          ;
+;  VIDEO_B[2] ; CLK_20     ; 8.167 ; 8.167 ; Rise       ; CLK_20          ;
+;  VIDEO_B[3] ; CLK_20     ; 8.161 ; 8.161 ; Rise       ; CLK_20          ;
+;  VIDEO_B[4] ; CLK_20     ; 8.146 ; 8.146 ; Rise       ; CLK_20          ;
+;  VIDEO_B[5] ; CLK_20     ; 8.508 ; 8.508 ; Rise       ; CLK_20          ;
+;  VIDEO_B[6] ; CLK_20     ; 8.518 ; 8.518 ; Rise       ; CLK_20          ;
+;  VIDEO_B[7] ; CLK_20     ; 8.521 ; 8.521 ; Rise       ; CLK_20          ;
+; VIDEO_G[*]  ; CLK_20     ; 8.462 ; 8.462 ; Rise       ; CLK_20          ;
+;  VIDEO_G[0] ; CLK_20     ; 8.452 ; 8.452 ; Rise       ; CLK_20          ;
+;  VIDEO_G[1] ; CLK_20     ; 8.462 ; 8.462 ; Rise       ; CLK_20          ;
+;  VIDEO_G[2] ; CLK_20     ; 8.088 ; 8.088 ; Rise       ; CLK_20          ;
+;  VIDEO_G[3] ; CLK_20     ; 8.103 ; 8.103 ; Rise       ; CLK_20          ;
+;  VIDEO_G[4] ; CLK_20     ; 8.135 ; 8.135 ; Rise       ; CLK_20          ;
+;  VIDEO_G[5] ; CLK_20     ; 7.826 ; 7.826 ; Rise       ; CLK_20          ;
+;  VIDEO_G[6] ; CLK_20     ; 7.398 ; 7.398 ; Rise       ; CLK_20          ;
+;  VIDEO_G[7] ; CLK_20     ; 7.778 ; 7.778 ; Rise       ; CLK_20          ;
+; VIDEO_HSYNC ; CLK_20     ; 7.402 ; 7.402 ; Rise       ; CLK_20          ;
+; VIDEO_R[*]  ; CLK_20     ; 8.828 ; 8.828 ; Rise       ; CLK_20          ;
+;  VIDEO_R[0] ; CLK_20     ; 8.806 ; 8.806 ; Rise       ; CLK_20          ;
+;  VIDEO_R[1] ; CLK_20     ; 8.301 ; 8.301 ; Rise       ; CLK_20          ;
+;  VIDEO_R[2] ; CLK_20     ; 8.650 ; 8.650 ; Rise       ; CLK_20          ;
+;  VIDEO_R[3] ; CLK_20     ; 8.478 ; 8.478 ; Rise       ; CLK_20          ;
+;  VIDEO_R[4] ; CLK_20     ; 8.828 ; 8.828 ; Rise       ; CLK_20          ;
+;  VIDEO_R[5] ; CLK_20     ; 8.451 ; 8.451 ; Rise       ; CLK_20          ;
+;  VIDEO_R[6] ; CLK_20     ; 8.350 ; 8.350 ; Rise       ; CLK_20          ;
+;  VIDEO_R[7] ; CLK_20     ; 8.492 ; 8.492 ; Rise       ; CLK_20          ;
+; VIDEO_VSYNC ; CLK_20     ; 7.390 ; 7.390 ; Rise       ; CLK_20          ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-------------+------------+-------+-------+------------+-----------------+
+; Data Port   ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------+------------+-------+-------+------------+-----------------+
+; VIDEO_B[*]  ; CLK_20     ; 3.702 ; 3.702 ; Rise       ; CLK_20          ;
+;  VIDEO_B[0] ; CLK_20     ; 3.702 ; 3.702 ; Rise       ; CLK_20          ;
+;  VIDEO_B[1] ; CLK_20     ; 3.704 ; 3.704 ; Rise       ; CLK_20          ;
+;  VIDEO_B[2] ; CLK_20     ; 3.815 ; 3.815 ; Rise       ; CLK_20          ;
+;  VIDEO_B[3] ; CLK_20     ; 3.811 ; 3.811 ; Rise       ; CLK_20          ;
+;  VIDEO_B[4] ; CLK_20     ; 3.795 ; 3.795 ; Rise       ; CLK_20          ;
+;  VIDEO_B[5] ; CLK_20     ; 3.913 ; 3.913 ; Rise       ; CLK_20          ;
+;  VIDEO_B[6] ; CLK_20     ; 3.924 ; 3.924 ; Rise       ; CLK_20          ;
+;  VIDEO_B[7] ; CLK_20     ; 3.931 ; 3.931 ; Rise       ; CLK_20          ;
+; VIDEO_G[*]  ; CLK_20     ; 3.559 ; 3.559 ; Rise       ; CLK_20          ;
+;  VIDEO_G[0] ; CLK_20     ; 3.883 ; 3.883 ; Rise       ; CLK_20          ;
+;  VIDEO_G[1] ; CLK_20     ; 3.886 ; 3.886 ; Rise       ; CLK_20          ;
+;  VIDEO_G[2] ; CLK_20     ; 3.759 ; 3.759 ; Rise       ; CLK_20          ;
+;  VIDEO_G[3] ; CLK_20     ; 3.769 ; 3.769 ; Rise       ; CLK_20          ;
+;  VIDEO_G[4] ; CLK_20     ; 3.789 ; 3.789 ; Rise       ; CLK_20          ;
+;  VIDEO_G[5] ; CLK_20     ; 3.717 ; 3.717 ; Rise       ; CLK_20          ;
+;  VIDEO_G[6] ; CLK_20     ; 3.559 ; 3.559 ; Rise       ; CLK_20          ;
+;  VIDEO_G[7] ; CLK_20     ; 3.691 ; 3.691 ; Rise       ; CLK_20          ;
+; VIDEO_HSYNC ; CLK_20     ; 3.568 ; 3.568 ; Rise       ; CLK_20          ;
+; VIDEO_R[*]  ; CLK_20     ; 3.869 ; 3.869 ; Rise       ; CLK_20          ;
+;  VIDEO_R[0] ; CLK_20     ; 3.982 ; 3.982 ; Rise       ; CLK_20          ;
+;  VIDEO_R[1] ; CLK_20     ; 3.869 ; 3.869 ; Rise       ; CLK_20          ;
+;  VIDEO_R[2] ; CLK_20     ; 3.972 ; 3.972 ; Rise       ; CLK_20          ;
+;  VIDEO_R[3] ; CLK_20     ; 3.899 ; 3.899 ; Rise       ; CLK_20          ;
+;  VIDEO_R[4] ; CLK_20     ; 4.000 ; 4.000 ; Rise       ; CLK_20          ;
+;  VIDEO_R[5] ; CLK_20     ; 3.882 ; 3.882 ; Rise       ; CLK_20          ;
+;  VIDEO_R[6] ; CLK_20     ; 3.887 ; 3.887 ; Rise       ; CLK_20          ;
+;  VIDEO_R[7] ; CLK_20     ; 3.898 ; 3.898 ; Rise       ; CLK_20          ;
+; VIDEO_VSYNC ; CLK_20     ; 3.562 ; 3.562 ; Rise       ; CLK_20          ;
++-------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLK_20     ; CLK_20   ; 6264     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLK_20     ; CLK_20   ; 6264     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
 ---------------
@@ -196,8 +1106,8 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 0     ; 0    ;
 ; Unconstrained Input Port Paths  ; 0     ; 0    ;
-; Unconstrained Output Ports      ; 0     ; 0    ;
-; Unconstrained Output Port Paths ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 26    ; 26   ;
+; Unconstrained Output Port Paths ; 26    ; 26   ;
 +---------------------------------+-------+------+
 
 
@@ -207,7 +1117,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Apr 04 20:01:07 2017
+    Info: Processing started: Fri Apr 07 13:26:46 2017
 Info: Command: quartus_sta my1 -c my1_top
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -215,33 +1125,48 @@ Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'my1_top.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name CLK_20 CLK_20
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
-Info (332159): No clocks to report
 Info: Analyzing Slow Model
-Info (332140): No fmax paths to report
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -6.243
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -6.243      -443.795 CLK_20 
+Info (332146): Worst-case hold slack is 0.753
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.753         0.000 CLK_20 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.941
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.941      -135.501 CLK_20 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
-Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.298
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.298       -88.971 CLK_20 
+Info (332146): Worst-case hold slack is 0.243
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.243         0.000 CLK_20 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380       -91.380 CLK_20 
 Info (332001): The selected device family is not supported by the report_metastability command.
-Info (332101): Design is fully constrained for setup requirements
-Info (332101): Design is fully constrained for hold requirements
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 399 megabytes
-    Info: Processing ended: Tue Apr 04 20:01:08 2017
+    Info: Peak virtual memory: 403 megabytes
+    Info: Processing ended: Fri Apr 07 13:26:47 2017
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

@@ -1,5 +1,5 @@
 Flow report for my1_top
-Tue Apr 04 20:01:09 2017
+Fri Apr 07 13:26:48 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Tue Apr 04 20:01:09 2017           ;
+; Flow Status                        ; Successful - Fri Apr 07 13:26:48 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; my1_top                                         ;
 ; Top-level Entity Name              ; my1_top                                         ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C8Q208C8                                     ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 0 / 8,256 ( 0 % )                               ;
-;     Total combinational functions  ; 0 / 8,256 ( 0 % )                               ;
-;     Dedicated logic registers      ; 0 / 8,256 ( 0 % )                               ;
-; Total registers                    ; 0                                               ;
-; Total pins                         ; 2 / 138 ( 1 % )                                 ;
+; Total logic elements               ; 167 / 8,256 ( 2 % )                             ;
+;     Total combinational functions  ; 153 / 8,256 ( 2 % )                             ;
+;     Dedicated logic registers      ; 90 / 8,256 ( 1 % )                              ;
+; Total registers                    ; 90                                              ;
+; Total pins                         ; 27 / 138 ( 20 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 165,888 ( 0 % )                             ;
 ; Embedded Multiplier 9-bit elements ; 0 / 36 ( 0 % )                                  ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/04/2017 20:01:00 ;
+; Start date & time ; 04/07/2017 13:26:37 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; my1_top             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id           ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------------+
-; COMPILER_SIGNATURE_ID               ; 277351192128545.149132526002076       ; --            ; --          ; --                   ;
+; COMPILER_SIGNATURE_ID               ; 277351192128545.149156079709904       ; --            ; --          ; --                   ;
 ; EDA_DESIGN_ENTRY_SYNTHESIS_TOOL     ; Design Compiler                       ; <None>        ; --          ; --                   ;
 ; EDA_INPUT_DATA_FORMAT               ; Vhdl                                  ; --            ; --          ; eda_design_synthesis ;
 ; EDA_INPUT_VCC_NAME                  ; Vdd                                   ; --            ; --          ; eda_design_synthesis ;
@@ -95,11 +95,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:01     ; 1.0                     ; 508 MB              ; 00:00:01                           ;
-; Fitter                    ; 00:00:02     ; 1.0                     ; 606 MB              ; 00:00:02                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 432 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 399 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:05     ; --                      ; --                  ; 00:00:05                           ;
+; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 502 MB              ; 00:00:02                           ;
+; Fitter                    ; 00:00:04     ; 1.0                     ; 608 MB              ; 00:00:04                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 434 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 403 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:08     ; --                      ; --                  ; 00:00:08                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
