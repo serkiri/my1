@@ -96,21 +96,45 @@ begin
 	if(CLK_20'event and CLK_20 = '1')then
 		if(videoOn = '1')then
 			if(hPos = 0 or hPos = 639 or vPos = 0 or vPos = 479)then
-				VIDEO_R <= "11111111";
-				VIDEO_G <= "11111111";
-				VIDEO_B <= "11111111";
-			elsif((hPos >= 10 and hPos <= 60) AND (vPos >= 10 and vPos <= 60))then
+				VIDEO_R <= "01111111";
+				VIDEO_G <= "01111111";
+				VIDEO_B <= "01111111";
+			elsif((hPos >= 11 and hPos <= 60) AND (vPos >= 10 and vPos <= 60))then
 				VIDEO_R <= "01111111";
 				VIDEO_G <= "00000000";
 				VIDEO_B <= "00000000";
-			elsif ((hPos >= 61 and hPos <= 120) AND (vPos >= 10 and vPos <= 60)) then
+			elsif ((hPos >= 61 and hPos <= 110) AND (vPos >= 10 and vPos <= 60)) then
 				VIDEO_R <= "00111111";
 				VIDEO_G <= "00000000";
 				VIDEO_B <= "00000000";
-			elsif ((hPos >= 121 and hPos <= 180) AND (vPos >= 10 and vPos <= 60)) then
+			elsif ((hPos >= 111 and hPos <= 160) AND (vPos >= 10 and vPos <= 60)) then
 				VIDEO_R <= "00011111";
 				VIDEO_G <= "00000000";
 				VIDEO_B <= "00000000";
+			elsif((hPos >= 11 and hPos <= 60) AND (vPos >= 61 and vPos <= 110))then
+				VIDEO_R <= "00000000";
+				VIDEO_G <= "01111111";
+				VIDEO_B <= "00000000";
+			elsif ((hPos >= 61 and hPos <= 110) AND (vPos >= 61 and vPos <= 110)) then
+				VIDEO_R <= "00000000";
+				VIDEO_G <= "00111111";
+				VIDEO_B <= "00000000";
+			elsif ((hPos >= 111 and hPos <= 160) AND (vPos >= 61 and vPos <= 110)) then
+				VIDEO_R <= "00000000";
+				VIDEO_G <= "00011111";
+				VIDEO_B <= "00000000";
+			elsif((hPos >= 11 and hPos <= 60) AND (vPos >= 111 and vPos <= 160))then
+				VIDEO_R <= "00000000";
+				VIDEO_G <= "00000000";
+				VIDEO_B <= "01111111";
+			elsif ((hPos >= 61 and hPos <= 110) AND (vPos >= 111 and vPos <= 160)) then
+				VIDEO_R <= "00000000";
+				VIDEO_G <= "00000000";
+				VIDEO_B <= "00111111";
+			elsif ((hPos >= 111 and hPos <= 160) AND (vPos >= 111 and vPos <= 160)) then
+				VIDEO_R <= "00000000";
+				VIDEO_G <= "00000000";
+				VIDEO_B <= "00011111";
 			else
 				VIDEO_R <= "00000000";
 				VIDEO_G <= "00000000";
