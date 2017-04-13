@@ -1,5 +1,5 @@
 Flow report for my1_top
-Fri Apr 07 13:26:48 2017
+Thu Apr 13 17:21:52 2017
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,20 +40,20 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Fri Apr 07 13:26:48 2017           ;
+; Flow Status                        ; Successful - Thu Apr 13 17:21:52 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; my1_top                                         ;
 ; Top-level Entity Name              ; my1_top                                         ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C8Q208C8                                     ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 167 / 8,256 ( 2 % )                             ;
-;     Total combinational functions  ; 153 / 8,256 ( 2 % )                             ;
-;     Dedicated logic registers      ; 90 / 8,256 ( 1 % )                              ;
-; Total registers                    ; 90                                              ;
+; Total logic elements               ; 1,551 / 8,256 ( 19 % )                          ;
+;     Total combinational functions  ; 1,460 / 8,256 ( 18 % )                          ;
+;     Dedicated logic registers      ; 831 / 8,256 ( 10 % )                            ;
+; Total registers                    ; 831                                             ;
 ; Total pins                         ; 27 / 138 ( 20 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0 / 165,888 ( 0 % )                             ;
+; Total memory bits                  ; 43,008 / 165,888 ( 26 % )                       ;
 ; Embedded Multiplier 9-bit elements ; 0 / 36 ( 0 % )                                  ;
 ; Total PLLs                         ; 0 / 2 ( 0 % )                                   ;
 +------------------------------------+-------------------------------------------------+
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/07/2017 13:26:37 ;
+; Start date & time ; 04/13/2017 17:21:17 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; my1_top             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id           ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------------+
-; COMPILER_SIGNATURE_ID               ; 277351192128545.149156079709904       ; --            ; --          ; --                   ;
+; COMPILER_SIGNATURE_ID               ; 277351192128545.149209327711984       ; --            ; --          ; --                   ;
 ; EDA_DESIGN_ENTRY_SYNTHESIS_TOOL     ; Design Compiler                       ; <None>        ; --          ; --                   ;
 ; EDA_INPUT_DATA_FORMAT               ; Vhdl                                  ; --            ; --          ; eda_design_synthesis ;
 ; EDA_INPUT_VCC_NAME                  ; Vdd                                   ; --            ; --          ; eda_design_synthesis ;
@@ -87,6 +87,7 @@ applicable agreement for further details.
 ; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; --          ; Top                  ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --            ; --          ; --                   ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --                   ;
+; SEARCH_PATH                         ; software/my1_8_eclipse/mem_init/      ; --            ; --          ; --                   ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------------+
 
 
@@ -95,11 +96,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 502 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:04     ; 1.0                     ; 608 MB              ; 00:00:04                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 434 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 403 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:08     ; --                      ; --                  ; 00:00:08                           ;
+; Analysis & Synthesis      ; 00:00:14     ; 1.0                     ; 566 MB              ; 00:00:14                           ;
+; Fitter                    ; 00:00:10     ; 1.0                     ; 632 MB              ; 00:00:10                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 435 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 430 MB              ; 00:00:02                           ;
+; Total                     ; 00:00:27     ; --                      ; --                  ; 00:00:28                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

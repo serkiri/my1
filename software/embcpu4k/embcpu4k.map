@@ -1,0 +1,488 @@
+Archive member included because of file (symbol)
+
+c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+                              obj/default/hello_world_small.o (memset)
+../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+                              ../embcpu4k_bsp//obj/HAL/src/crt0.o (alt_load)
+../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+                              ../embcpu4k_bsp//obj/HAL/src/crt0.o (alt_main)
+../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+                              obj/default/hello_world_small.o (usleep)
+../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+                              ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o) (alt_sys_init)
+../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                              ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o) (alt_busy_sleep)
+../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                              ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o) (alt_dcache_flush_all)
+../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                              ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o) (alt_icache_flush_all)
+../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+                              ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o) (altera_nios2_qsys_irq_init)
+c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                              ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o) (__udivsi3)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+reset            0x00001000         0x00000020
+onchip_memory2_0 0x00001020         0x00000fe0
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ../embcpu4k_bsp//obj/HAL/src/crt0.o
+                0x0000100c                exit = _exit
+LOAD obj/default/hello_world_small.o
+LOAD c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libstdc++.a
+LOAD c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libm.a
+LOAD c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a
+START GROUP
+LOAD c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a
+LOAD c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a
+LOAD ../embcpu4k_bsp/\libhal_bsp.a
+END GROUP
+LOAD c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a
+                0x00001000                __alt_mem_onchip_memory2_0 = 0x1000
+
+.entry          0x00001000       0x20
+ *(.entry)
+ .entry         0x00001000       0x20 ../embcpu4k_bsp//obj/HAL/src/crt0.o
+                0x00001000                __reset
+                0x0000100c                _exit
+
+.exceptions     0x00001020        0x0
+                0x00001020                PROVIDE (__ram_exceptions_start, ABSOLUTE (.))
+                0x00001020                . = ALIGN (0x20)
+ *(.irq)
+ *(.exceptions.entry.label)
+ *(.exceptions.entry.user)
+ *(.exceptions.entry)
+ *(.exceptions.irqtest.user)
+ *(.exceptions.irqtest)
+ *(.exceptions.irqhandler.user)
+ *(.exceptions.irqhandler)
+ *(.exceptions.irqreturn.user)
+ *(.exceptions.irqreturn)
+ *(.exceptions.notirq.label)
+ *(.exceptions.notirq.user)
+ *(.exceptions.notirq)
+ *(.exceptions.soft.user)
+ *(.exceptions.soft)
+ *(.exceptions.unknown.user)
+ *(.exceptions.unknown)
+ *(.exceptions.exit.label)
+ *(.exceptions.exit.user)
+ *(.exceptions.exit)
+ *(.exceptions)
+                0x00001020                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
+                0x00001020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
+
+.text           0x00001020      0x394
+                0x00001020                PROVIDE (stext, ABSOLUTE (.))
+ *(.interp)
+ *(.hash)
+ *(.dynsym)
+ *(.dynstr)
+ *(.gnu.version)
+ *(.gnu.version_d)
+ *(.gnu.version_r)
+ *(.rel.init)
+ *(.rela.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rela.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rela.ctors)
+ *(.rel.dtors)
+ *(.rela.dtors)
+ *(.rel.got)
+ *(.rela.got)
+ *(.rel.sdata .rel.sdata.* .rel.gnu.linkonce.s.*)
+ *(.rela.sdata .rela.sdata.* .rela.gnu.linkonce.s.*)
+ *(.rel.sbss .rel.sbss.* .rel.gnu.linkonce.sb.*)
+ *(.rela.sbss .rela.sbss.* .rela.gnu.linkonce.sb.*)
+ *(.rel.sdata2 .rel.sdata2.* .rel.gnu.linkonce.s2.*)
+ *(.rela.sdata2 .rela.sdata2.* .rela.gnu.linkonce.s2.*)
+ *(.rel.sbss2 .rel.sbss2.* .rel.gnu.linkonce.sb2.*)
+ *(.rela.sbss2 .rela.sbss2.* .rela.gnu.linkonce.sb2.*)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+ *(.rel.plt)
+ *(.rela.plt)
+ *(.rel.dyn)
+ *(.init)
+ *(.plt)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x00001020       0x3c ../embcpu4k_bsp//obj/HAL/src/crt0.o
+                0x00001020                _start
+ .text          0x0000105c       0x80 obj/default/hello_world_small.o
+                0x0000105c                main
+ .text          0x000010dc       0x20 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+                0x000010dc                memset
+ .text          0x000010fc       0x8c ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+                0x0000111c                alt_load
+ .text          0x00001188       0x2c ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+                0x00001188                alt_main
+ .text          0x000011b4        0x4 ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+                0x000011b4                usleep
+ .text          0x000011b8       0x24 ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x000011b8                alt_sys_init
+                0x000011bc                alt_irq_init
+ .text          0x000011dc       0x7c ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                0x000011dc                alt_busy_sleep
+ .text          0x00001258        0x4 ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                0x00001258                alt_dcache_flush_all
+ .text          0x0000125c        0x4 ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                0x0000125c                alt_icache_flush_all
+ .text          0x00001260        0x8 ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+                0x00001260                altera_nios2_qsys_irq_init
+ .text          0x00001268      0x14c c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                0x000012e4                __divsi3
+                0x00001344                __modsi3
+                0x000013a4                __udivsi3
+                0x000013ac                __umodsi3
+ *(.gnu.warning.*)
+ *(.fini)
+                0x000013b4                PROVIDE (__etext, ABSOLUTE (.))
+                0x000013b4                PROVIDE (_etext, ABSOLUTE (.))
+                0x000013b4                PROVIDE (etext, ABSOLUTE (.))
+ *(.eh_frame_hdr)
+                0x000013b4                . = ALIGN (0x4)
+                0x000013b4                PROVIDE (__preinit_array_start, ABSOLUTE (.))
+ *(.preinit_array)
+                0x000013b4                PROVIDE (__preinit_array_end, ABSOLUTE (.))
+                0x000013b4                PROVIDE (__init_array_start, ABSOLUTE (.))
+ *(.init_array)
+                0x000013b4                PROVIDE (__init_array_end, ABSOLUTE (.))
+                0x000013b4                PROVIDE (__fini_array_start, ABSOLUTE (.))
+ *(.fini_array)
+                0x000013b4                PROVIDE (__fini_array_end, ABSOLUTE (.))
+ *(.eh_frame)
+ *(.gcc_except_table)
+ *(.dynamic)
+                0x000013b4                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+ *(.ctors)
+ *(SORT(.ctors.*))
+                0x000013b4                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x000013b4                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+ *(.dtors)
+ *(SORT(.dtors.*))
+                0x000013b4                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+ *(.jcr)
+                0x000013b4                . = ALIGN (0x4)
+
+.rodata         0x000013b4        0x0
+                0x000013b4                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x000013b4                . = ALIGN (0x4)
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ *(.rodata1)
+                0x000013b4                . = ALIGN (0x4)
+                0x000013b4                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x000013b4                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+
+.rwdata         0x000013b4        0x0
+                0x000013b4                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x000013b4                . = ALIGN (0x4)
+ *(.got.plt)
+ *(.got)
+ *(.data1)
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x000013b4        0x0 ../embcpu4k_bsp//obj/HAL/src/crt0.o
+ .data          0x000013b4        0x0 obj/default/hello_world_small.o
+ .data          0x000013b4        0x0 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+ .data          0x000013b4        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+ .data          0x000013b4        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+ .data          0x000013b4        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+ .data          0x000013b4        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .data          0x000013b4        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .data          0x000013b4        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x000013b4        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x000013b4        0x0 ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .data          0x000013b4        0x0 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                0x000093b4                _gp = ABSOLUTE ((. + 0x8000))
+                0x000093b4                PROVIDE (gp, _gp)
+ *(.rwdata .rwdata.*)
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+ *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
+                0x000013b4                . = ALIGN (0x4)
+                0x000013b4                _edata = ABSOLUTE (.)
+                0x000013b4                PROVIDE (edata, ABSOLUTE (.))
+                0x000013b4                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x000013b4                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+
+.bss            0x000013b4        0xc
+                0x000013b4                __bss_start = ABSOLUTE (.)
+                0x000013b4                PROVIDE (__sbss_start, ABSOLUTE (.))
+                0x000013b4                PROVIDE (___sbss_start, ABSOLUTE (.))
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ .sbss          0x000013b4        0xc ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+                0x000013b4                alt_argc
+                0x000013b8                alt_argv
+                0x000013bc                alt_envp
+ *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
+ *(.scommon)
+                0x000013c0                PROVIDE (__sbss_end, ABSOLUTE (.))
+                0x000013c0                PROVIDE (___sbss_end, ABSOLUTE (.))
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x000013c0        0x0 ../embcpu4k_bsp//obj/HAL/src/crt0.o
+ .bss           0x000013c0        0x0 obj/default/hello_world_small.o
+ .bss           0x000013c0        0x0 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+ .bss           0x000013c0        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+ .bss           0x000013c0        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+ .bss           0x000013c0        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+ .bss           0x000013c0        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .bss           0x000013c0        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .bss           0x000013c0        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x000013c0        0x0 ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x000013c0        0x0 ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .bss           0x000013c0        0x0 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ *(COMMON)
+                0x000013c0                . = ALIGN (0x4)
+                0x000013c0                __bss_end = ABSOLUTE (.)
+
+.onchip_memory2_0
+                0x000013c0        0x0
+                0x000013c0                PROVIDE (_alt_partition_onchip_memory2_0_start, ABSOLUTE (.))
+ *(.onchip_memory2_0. onchip_memory2_0.*)
+                0x000013c0                . = ALIGN (0x4)
+                0x000013c0                PROVIDE (_alt_partition_onchip_memory2_0_end, ABSOLUTE (.))
+                0x000013c0                _end = ABSOLUTE (.)
+                0x000013c0                end = ABSOLUTE (.)
+                0x000013c0                __alt_stack_base = ABSOLUTE (.)
+                0x000013c0                PROVIDE (_alt_partition_onchip_memory2_0_load_addr, LOADADDR (.onchip_memory2_0))
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x26
+ *(.comment)
+ .comment       0x00000000       0x26 obj/default/hello_world_small.o
+                                 0x27 (size before relaxing)
+ .comment       0x00000000       0x27 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+ .comment       0x00000000       0x27 ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+ .comment       0x00000000       0x27 ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+ .comment       0x00000000       0x27 ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+ .comment       0x00000000       0x27 ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .comment       0x00000000       0x27 ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .comment       0x00000000       0x27 ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .comment       0x00000000       0x27 ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .comment       0x00000000       0x27 ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .comment       0x00000000       0x27 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x188
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x28 ../embcpu4k_bsp//obj/HAL/src/crt0.o
+ .debug_aranges
+                0x00000028       0x20 obj/default/hello_world_small.o
+ .debug_aranges
+                0x00000048       0x20 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+ .debug_aranges
+                0x00000068       0x20 ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_aranges
+                0x00000088       0x20 ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_aranges
+                0x000000a8       0x20 ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_aranges
+                0x000000c8       0x20 ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_aranges
+                0x000000e8       0x20 ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_aranges
+                0x00000108       0x20 ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_aranges
+                0x00000128       0x20 ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_aranges
+                0x00000148       0x20 ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_aranges
+                0x00000168       0x20 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+
+.debug_pubnames
+                0x00000000      0x1e2
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x1b obj/default/hello_world_small.o
+ .debug_pubnames
+                0x0000001b       0x1d c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+ .debug_pubnames
+                0x00000038       0x1f ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_pubnames
+                0x00000057       0x46 ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_pubnames
+                0x0000009d       0x1d ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_pubnames
+                0x000000ba       0x34 ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_pubnames
+                0x000000ee       0x25 ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_pubnames
+                0x00000113       0x2b ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_pubnames
+                0x0000013e       0x2b ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_pubnames
+                0x00000169       0x31 ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_pubnames
+                0x0000019a       0x48 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+
+.debug_info     0x00000000      0xad9
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000       0x55 ../embcpu4k_bsp//obj/HAL/src/crt0.o
+ .debug_info    0x00000055       0xca obj/default/hello_world_small.o
+ .debug_info    0x0000011f       0xd7 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+ .debug_info    0x000001f6      0x12e ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_info    0x00000324      0x14f ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_info    0x00000473       0xab ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_info    0x0000051e       0xfe ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_info    0x0000061c       0xd0 ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_info    0x000006ec       0x8d ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x00000779       0x8d ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x00000806       0xb7 ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_info    0x000008bd      0x21c c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+
+.debug_abbrev   0x00000000      0x5ab
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000       0x12 ../embcpu4k_bsp//obj/HAL/src/crt0.o
+ .debug_abbrev  0x00000012       0x7e obj/default/hello_world_small.o
+ .debug_abbrev  0x00000090       0x8b c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+ .debug_abbrev  0x0000011b       0x97 ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_abbrev  0x000001b2       0xad ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_abbrev  0x0000025f       0x5d ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_abbrev  0x000002bc       0xb4 ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x00000370       0x79 ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_abbrev  0x000003e9       0x3f ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x00000428       0x3f ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x00000467       0x64 ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_abbrev  0x000004cb       0xe0 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+
+.debug_line     0x00000000     0x16e9
+ *(.debug_line)
+ .debug_line    0x00000000       0x66 ../embcpu4k_bsp//obj/HAL/src/crt0.o
+ .debug_line    0x00000066      0x147 obj/default/hello_world_small.o
+ .debug_line    0x000001ad      0x258 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+ .debug_line    0x00000405      0x217 ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_line    0x0000061c      0x2d6 ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_line    0x000008f2      0x202 ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_line    0x00000af4      0x1f7 ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x00000ceb      0x25e ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_line    0x00000f49      0x1b5 ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x000010fe      0x1b5 ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x000012b3      0x1e7 ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_line    0x0000149a      0x24f c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+
+.debug_frame    0x00000000      0x1fc
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x2c obj/default/hello_world_small.o
+ .debug_frame   0x0000002c       0x20 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+ .debug_frame   0x0000004c       0x38 ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_frame   0x00000084       0x28 ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_frame   0x000000ac       0x20 ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_frame   0x000000cc       0x38 ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_frame   0x00000104       0x28 ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_frame   0x0000012c       0x20 ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_frame   0x0000014c       0x20 ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_frame   0x0000016c       0x20 ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+ .debug_frame   0x0000018c       0x70 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+
+.debug_str      0x00000000      0x58d
+ *(.debug_str)
+ .debug_str     0x00000000       0x96 obj/default/hello_world_small.o
+                                 0xc2 (size before relaxing)
+ .debug_str     0x00000096       0xe9 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+                                0x17e (size before relaxing)
+ .debug_str     0x0000017f      0x115 ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+                                0x1aa (size before relaxing)
+ .debug_str     0x00000294       0x96 ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+                                0x157 (size before relaxing)
+ .debug_str     0x0000032a       0x27 ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+                                 0xe0 (size before relaxing)
+ .debug_str     0x00000351       0x4c ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+                                0x12e (size before relaxing)
+ .debug_str     0x0000039d       0x42 ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                                0x103 (size before relaxing)
+ .debug_str     0x000003df       0x34 ../embcpu4k_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                                 0xed (size before relaxing)
+ .debug_str     0x00000413       0x34 ../embcpu4k_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                                 0xed (size before relaxing)
+ .debug_str     0x00000447       0x3b ../embcpu4k_bsp/\libhal_bsp.a(altera_nios2_qsys_irq.o)
+                                0x11d (size before relaxing)
+ .debug_str     0x00000482      0x10b c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                                0x1b4 (size before relaxing)
+
+.debug_loc      0x00000000      0x31f
+ *(.debug_loc)
+ .debug_loc     0x00000000       0x20 obj/default/hello_world_small.o
+ .debug_loc     0x00000020       0x4f c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/../../../../nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memset.o)
+ .debug_loc     0x0000006f       0x1f ../embcpu4k_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_loc     0x0000008e       0x1f ../embcpu4k_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_loc     0x000000ad       0x13 ../embcpu4k_bsp/\libhal_bsp.a(alt_usleep.o)
+ .debug_loc     0x000000c0       0x32 ../embcpu4k_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_loc     0x000000f2       0x5b ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .debug_loc     0x0000014d      0x1d2 c:/altera/13.0sp1/nios2eds/bin/gnu/h-i686-mingw32/bin/../lib/gcc/nios2-elf/4.1.2/mno-hw-mul\libgcc.a(lib2-divmod.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_alt_sim_info
+                0x00000000       0x40
+ *(.debug_alt_sim_info)
+ .debug_alt_sim_info
+                0x00000000       0x10 ../embcpu4k_bsp//obj/HAL/src/crt0.o
+ .debug_alt_sim_info
+                0x00000010       0x30 ../embcpu4k_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                0x00002000                __alt_data_end = 0x2000
+                0x00002000                PROVIDE (__alt_stack_pointer, __alt_data_end)
+                0x000013c0                PROVIDE (__alt_stack_limit, __alt_stack_base)
+                0x000013c0                PROVIDE (__alt_heap_start, end)
+                0x00002000                PROVIDE (__alt_heap_limit, 0x2000)
+OUTPUT(embcpu4k.elf elf32-littlenios2)
+
+.debug_ranges   0x00000000       0x20
+ .debug_ranges  0x00000000       0x20 ../embcpu4k_bsp//obj/HAL/src/crt0.o

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2017.04.07.22:21:35"
+ outputDirectory="D:/speccy/my1/db/ip/nios/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Cyclone II"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="EP2C8Q208C8"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_0_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_0_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_CLK_0_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="clk" kind="clock" start="0">
+   <property name="clockRate" value="50000000" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clk_clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="reset" kind="reset" start="0">
+   <property name="associatedClock" value="" />
+   <property name="synchronousEdges" value="NONE" />
+   <port name="reset_reset_n" direction="input" role="reset_n" width="1" />
+  </interface>
+  <interface name="clk_0" kind="clock" start="0">
+   <property name="clockRate" value="50000000" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clk_0_clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="reset_0" kind="reset" start="0">
+   <property name="associatedClock" value="" />
+   <property name="synchronousEdges" value="NONE" />
+   <port name="reset_0_reset_n" direction="input" role="reset_n" width="1" />
+  </interface>
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="nios:1.0:AUTO_CLK_0_CLOCK_DOMAIN=-1,AUTO_CLK_0_CLOCK_RATE=-1,AUTO_CLK_0_RESET_DOMAIN=-1,AUTO_CLK_CLOCK_DOMAIN=-1,AUTO_CLK_CLOCK_RATE=-1,AUTO_CLK_RESET_DOMAIN=-1,AUTO_DEVICE=EP2C8Q208C8,AUTO_DEVICE_FAMILY=Cyclone II,AUTO_GENERATION_ID=1491592894,AUTO_UNIQUE_ID=(clock_source:13.0:clockFrequency=50000000,clockFrequencyKnown=true,inputClockFrequency=0,resetSynchronousEdges=NONE)(nios:1.0:AUTO_CLK_CLOCK_DOMAIN=2,AUTO_CLK_CLOCK_RATE=0,AUTO_CLK_RESET_DOMAIN=2,AUTO_DEVICE=EP2C8Q208C8,AUTO_DEVICE_FAMILY=Cyclone II,AUTO_GENERATION_ID=1491592894,AUTO_UNIQUE_ID=nios_nios_0(clock_source:13.0:clockFrequency=50000000,clockFrequencyKnown=true,inputClockFrequency=0,resetSynchronousEdges=NONE)(missing_module:1.0:moduleKind=nios,moduleParameters={AUTO_DEVICE_FAMILY=Cyclone II, AUTO_UNIQUE_ID=$${FILENAME}_nios_0, AUTO_CLK_CLOCK_RATE=0, AUTO_CLK_RESET_DOMAIN=2, AUTO_DEVICE=EP2C8Q208C8, AUTO_GENERATION_ID=0, AUTO_CLK_CLOCK_DOMAIN=2},moduleVersion=1.0))"
+   instancePathKey="nios"
+   kind="nios"
+   version="1.0"
+   name="nios">
+  <parameter name="AUTO_CLK_0_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_CLK_0_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_CLK_0_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_DEVICE" value="EP2C8Q208C8" />
+  <parameter name="AUTO_GENERATION_ID" value="1491592894" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="-1" />
+  <generatedFiles>
+   <file path="D:/speccy/my1/db/ip/nios/nios.v" type="VERILOG" attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="D:/speccy/my1/db/ip/nios/submodules/nios_nios_0.v"
+       type="VERILOG"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file path="D:/speccy/my1/nios.qsys" attributes="" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file path="D:/speccy/my1/nios.qsys" attributes="" />
+  </childSourceFiles>
+  <messages>
+   <message level="Debug" culprit="nios">queue size: 0 starting:nios "nios"</message>
+   <message level="Debug">Transform: PipelineBridgeSwap</message>
+   <message level="Info" culprit="pipeline_bridge_swap_transform"><![CDATA[After transform: <b>2</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: ClockCrossingBridgeSwap</message>
+   <message level="Debug">Transform: QsysBetaIPSwap</message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Info">No custom instruction connections, skipping transform </message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: TranslatorTransform</message>
+   <message level="Info">No Avalon connections, skipping transform </message>
+   <message level="Info" culprit="merlin_translator_transform"><![CDATA[After transform: <b>2</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: IDPadTransform</message>
+   <message level="Debug">Transform: DomainTransform</message>
+   <message level="Debug">Transform: RouterTransform</message>
+   <message level="Debug">Transform: TrafficLimiterTransform</message>
+   <message level="Debug">Transform: BurstTransform</message>
+   <message level="Debug">Transform: CombinedWidthTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug">Transform: NetworkToSwitchTransform</message>
+   <message level="Debug">Transform: WidthTransform</message>
+   <message level="Debug">Transform: RouterTableTransform</message>
+   <message level="Debug">Transform: ClockCrossingTransform</message>
+   <message level="Debug">Transform: PipelineTransform</message>
+   <message level="Debug">Transform: TrafficLimiterUpdateTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug" culprit="nios"><![CDATA["<b>nios</b>" reuses <b>nios</b> "<b>submodules/nios_nios_0</b>"]]></message>
+   <message level="Debug" culprit="nios">queue size: 0 starting:nios "submodules/nios_nios_0"</message>
+   <message level="Debug">Transform: PipelineBridgeSwap</message>
+   <message level="Info" culprit="pipeline_bridge_swap_transform"><![CDATA[After transform: <b>2</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: ClockCrossingBridgeSwap</message>
+   <message level="Debug">Transform: QsysBetaIPSwap</message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Info">No custom instruction connections, skipping transform </message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: TranslatorTransform</message>
+   <message level="Info">No Avalon connections, skipping transform </message>
+   <message level="Info" culprit="merlin_translator_transform"><![CDATA[After transform: <b>2</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: IDPadTransform</message>
+   <message level="Debug">Transform: DomainTransform</message>
+   <message level="Debug">Transform: RouterTransform</message>
+   <message level="Debug">Transform: TrafficLimiterTransform</message>
+   <message level="Debug">Transform: BurstTransform</message>
+   <message level="Debug">Transform: CombinedWidthTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug">Transform: NetworkToSwitchTransform</message>
+   <message level="Debug">Transform: WidthTransform</message>
+   <message level="Debug">Transform: RouterTableTransform</message>
+   <message level="Debug">Transform: ClockCrossingTransform</message>
+   <message level="Debug">Transform: PipelineTransform</message>
+   <message level="Debug">Transform: TrafficLimiterUpdateTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug" culprit="nios_0"><![CDATA["<b>nios_0</b>" reuses <b>missing_module</b> "<b>submodules/nios_nios_0_nios_0</b>"]]></message>
+   <message level="Info" culprit="nios_0"><![CDATA["<b>nios</b>" instantiated <b>nios</b> "<b>nios_0</b>"]]></message>
+   <message level="Debug" culprit="nios">queue size: 0 starting:missing_module "submodules/nios_nios_0_nios_0"</message>
+   <message level="Error" culprit="nios_0"><![CDATA[<b>missing_module</b> does not support generation.]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="nios:1.0:AUTO_CLK_CLOCK_DOMAIN=2,AUTO_CLK_CLOCK_RATE=0,AUTO_CLK_RESET_DOMAIN=2,AUTO_DEVICE=EP2C8Q208C8,AUTO_DEVICE_FAMILY=Cyclone II,AUTO_GENERATION_ID=1491592894,AUTO_UNIQUE_ID=nios_nios_0(clock_source:13.0:clockFrequency=50000000,clockFrequencyKnown=true,inputClockFrequency=0,resetSynchronousEdges=NONE)(missing_module:1.0:moduleKind=nios,moduleParameters={AUTO_DEVICE_FAMILY=Cyclone II, AUTO_UNIQUE_ID=$${FILENAME}_nios_0, AUTO_CLK_CLOCK_RATE=0, AUTO_CLK_RESET_DOMAIN=2, AUTO_DEVICE=EP2C8Q208C8, AUTO_GENERATION_ID=0, AUTO_CLK_CLOCK_DOMAIN=2},moduleVersion=1.0)"
+   instancePathKey="nios:.:nios_0"
+   kind="nios"
+   version="1.0"
+   name="nios_nios_0">
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone II" />
+  <parameter name="AUTO_UNIQUE_ID" value="nios_nios_0" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="0" />
+  <parameter name="AUTO_CLK_RESET_DOMAIN" value="2" />
+  <parameter name="AUTO_DEVICE" value="EP2C8Q208C8" />
+  <parameter name="AUTO_GENERATION_ID" value="1491592894" />
+  <parameter name="AUTO_CLK_CLOCK_DOMAIN" value="2" />
+  <generatedFiles>
+   <file
+       path="D:/speccy/my1/db/ip/nios/submodules/nios_nios_0.v"
+       type="VERILOG"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file path="D:/speccy/my1/nios.qsys" attributes="" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="nios" as="nios_0" />
+  <messages>
+   <message level="Debug" culprit="nios">queue size: 0 starting:nios "submodules/nios_nios_0"</message>
+   <message level="Debug">Transform: PipelineBridgeSwap</message>
+   <message level="Info" culprit="pipeline_bridge_swap_transform"><![CDATA[After transform: <b>2</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: ClockCrossingBridgeSwap</message>
+   <message level="Debug">Transform: QsysBetaIPSwap</message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Info">No custom instruction connections, skipping transform </message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: TranslatorTransform</message>
+   <message level="Info">No Avalon connections, skipping transform </message>
+   <message level="Info" culprit="merlin_translator_transform"><![CDATA[After transform: <b>2</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: IDPadTransform</message>
+   <message level="Debug">Transform: DomainTransform</message>
+   <message level="Debug">Transform: RouterTransform</message>
+   <message level="Debug">Transform: TrafficLimiterTransform</message>
+   <message level="Debug">Transform: BurstTransform</message>
+   <message level="Debug">Transform: CombinedWidthTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug">Transform: NetworkToSwitchTransform</message>
+   <message level="Debug">Transform: WidthTransform</message>
+   <message level="Debug">Transform: RouterTableTransform</message>
+   <message level="Debug">Transform: ClockCrossingTransform</message>
+   <message level="Debug">Transform: PipelineTransform</message>
+   <message level="Debug">Transform: TrafficLimiterUpdateTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug" culprit="nios_0"><![CDATA["<b>nios_0</b>" reuses <b>missing_module</b> "<b>submodules/nios_nios_0_nios_0</b>"]]></message>
+   <message level="Info" culprit="nios_0"><![CDATA["<b>nios</b>" instantiated <b>nios</b> "<b>nios_0</b>"]]></message>
+   <message level="Debug" culprit="nios">queue size: 0 starting:missing_module "submodules/nios_nios_0_nios_0"</message>
+   <message level="Error" culprit="nios_0"><![CDATA[<b>missing_module</b> does not support generation.]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="missing_module:1.0:moduleKind=nios,moduleParameters={AUTO_DEVICE_FAMILY=Cyclone II, AUTO_UNIQUE_ID=$${FILENAME}_nios_0, AUTO_CLK_CLOCK_RATE=0, AUTO_CLK_RESET_DOMAIN=2, AUTO_DEVICE=EP2C8Q208C8, AUTO_GENERATION_ID=0, AUTO_CLK_CLOCK_DOMAIN=2},moduleVersion=1.0"
+   instancePathKey="nios:.:nios_0:.:nios_0"
+   kind="missing_module"
+   version="1.0"
+   name="nios_nios_0_nios_0">
+  <parameter
+     name="moduleParameters"
+     value="{AUTO_DEVICE_FAMILY=Cyclone II, AUTO_UNIQUE_ID=$${FILENAME}_nios_0, AUTO_CLK_CLOCK_RATE=0, AUTO_CLK_RESET_DOMAIN=2, AUTO_DEVICE=EP2C8Q208C8, AUTO_GENERATION_ID=0, AUTO_CLK_CLOCK_DOMAIN=2}" />
+  <parameter name="moduleVersion" value="1.0" />
+  <parameter name="moduleKind" value="nios" />
+  <generatedFiles/>
+  <childGeneratedFiles/>
+  <sourceFiles/>
+  <childSourceFiles/>
+  <instantiator instantiator="nios_nios_0" as="nios_0" />
+  <messages>
+   <message level="Debug" culprit="nios">queue size: 0 starting:missing_module "submodules/nios_nios_0_nios_0"</message>
+   <message level="Error" culprit="nios_0"><![CDATA[<b>missing_module</b> does not support generation.]]></message>
+  </messages>
+ </entity>
+</deploy>
