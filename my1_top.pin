@@ -158,30 +158,30 @@ VCCIO4                       : 91        : power  :                   : 3.3V    
 GND*                         : 92        :        :                   :         : 4         :                
 GND                          : 93        : gnd    :                   :         :           :                
 GND*                         : 94        :        :                   :         : 4         :                
-GND*                         : 95        :        :                   :         : 4         :                
+pMemCke                      : 95        : output : 3.3-V LVTTL       :         : 4         : Y              
 GND*                         : 96        :        :                   :         : 4         :                
-GND*                         : 97        :        :                   :         : 4         :                
+pMemAdr[11]                  : 97        : output : 3.3-V LVTTL       :         : 4         : Y              
 VCCIO4                       : 98        : power  :                   : 3.3V    : 4         :                
-GND*                         : 99        :        :                   :         : 4         :                
+pMemAdr[9]                   : 99        : output : 3.3-V LVTTL       :         : 4         : Y              
 GND                          : 100       : gnd    :                   :         :           :                
-GND*                         : 101       :        :                   :         : 4         :                
-GND*                         : 102       :        :                   :         : 4         :                
-GND*                         : 103       :        :                   :         : 4         :                
-GND*                         : 104       :        :                   :         : 4         :                
-GND*                         : 105       :        :                   :         : 3         :                
-GND*                         : 106       :        :                   :         : 3         :                
-GND*                         : 107       :        :                   :         : 3         :                
-~LVDS54p/nCEO~               : 108       : output : 3.3-V LVTTL       :         : 3         : N              
+pMemAdr[8]                   : 101       : output : 3.3-V LVTTL       :         : 4         : Y              
+pMemAdr[7]                   : 102       : output : 3.3-V LVTTL       :         : 4         : Y              
+pMemAdr[6]                   : 103       : output : 3.3-V LVTTL       :         : 4         : Y              
+pMemAdr[5]                   : 104       : output : 3.3-V LVTTL       :         : 4         : Y              
+pMemAdr[4]                   : 105       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemAdr[3]                   : 106       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemAdr[2]                   : 107       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemAdr[1]                   : 108       : output : 3.3-V LVTTL       :         : 3         : Y              
 VCCIO3                       : 109       : power  :                   : 3.3V    : 3         :                
-GND*                         : 110       :        :                   :         : 3         :                
+pMemAdr[0]                   : 110       : output : 3.3-V LVTTL       :         : 3         : Y              
 GND                          : 111       : gnd    :                   :         :           :                
-GND*                         : 112       :        :                   :         : 3         :                
-GND*                         : 113       :        :                   :         : 3         :                
-GND*                         : 114       :        :                   :         : 3         :                
-GND*                         : 115       :        :                   :         : 3         :                
-GND*                         : 116       :        :                   :         : 3         :                
-GND*                         : 117       :        :                   :         : 3         :                
-GND*                         : 118       :        :                   :         : 3         :                
+pMemAdr[10]                  : 112       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemBa1                      : 113       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemBa0                      : 114       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemCs_n                     : 115       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemRas_n                    : 116       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemCas_n                    : 117       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemWe_n                     : 118       : output : 3.3-V LVTTL       :         : 3         : Y              
 GND                          : 119       : gnd    :                   :         :           :                
 VCCINT                       : 120       : power  :                   : 1.2V    :           :                
 nSTATUS                      : 121       :        :                   :         : 3         :                
@@ -190,32 +190,32 @@ CONF_DONE                    : 123       :        :                   :         
 GND                          : 124       : gnd    :                   :         :           :                
 MSEL1                        : 125       :        :                   :         : 3         :                
 MSEL0                        : 126       :        :                   :         : 3         :                
-GND*                         : 127       :        :                   :         : 3         :                
-GND*                         : 128       :        :                   :         : 3         :                
+pMemLdq                      : 127       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[7]                   : 128       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 GND+                         : 129       :        :                   :         : 3         :                
 GND+                         : 130       :        :                   :         : 3         :                
 GND+                         : 131       :        :                   :         : 3         :                
 CLK_20                       : 132       : input  : 3.3-V LVTTL       :         : 3         : Y              
-GND*                         : 133       :        :                   :         : 3         :                
-GND*                         : 134       :        :                   :         : 3         :                
-GND*                         : 135       :        :                   :         : 3         :                
+pMemDat[6]                   : 133       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[5]                   : 134       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[4]                   : 135       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 VCCIO3                       : 136       : power  :                   : 3.3V    : 3         :                
-GND*                         : 137       :        :                   :         : 3         :                
-GND*                         : 138       :        :                   :         : 3         :                
-GND*                         : 139       :        :                   :         : 3         :                
+pMemDat[3]                   : 137       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[2]                   : 138       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[1]                   : 139       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 GND                          : 140       : gnd    :                   :         :           :                
-GND*                         : 141       :        :                   :         : 3         :                
-GND*                         : 142       :        :                   :         : 3         :                
-GND*                         : 143       :        :                   :         : 3         :                
-GND*                         : 144       :        :                   :         : 3         :                
-GND*                         : 145       :        :                   :         : 3         :                
-GND*                         : 146       :        :                   :         : 3         :                
-GND*                         : 147       :        :                   :         : 3         :                
+pMemDat[0]                   : 141       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[15]                  : 142       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[14]                  : 143       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[13]                  : 144       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[12]                  : 145       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[11]                  : 146       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[10]                  : 147       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 VCCIO3                       : 148       : power  :                   : 3.3V    : 3         :                
-GND*                         : 149       :        :                   :         : 3         :                
-GND*                         : 150       :        :                   :         : 3         :                
-GND*                         : 151       :        :                   :         : 3         :                
-GND*                         : 152       :        :                   :         : 3         :                
+pMemDat[9]                   : 149       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemDat[8]                   : 150       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+pMemClk                      : 151       : output : 3.3-V LVTTL       :         : 3         : Y              
+pMemUdq                      : 152       : output : 3.3-V LVTTL       :         : 3         : Y              
 GND                          : 153       : gnd    :                   :         :           :                
 GND_PLL2                     : 154       : gnd    :                   :         :           :                
 VCCD_PLL2                    : 155       : power  :                   : 1.2V    :           :                

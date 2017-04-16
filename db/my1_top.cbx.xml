@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="my1_top">
-		<CBX_INST_ENTRY INSTANCE_NAME="|my1_top|embcpu:niosinst|embcpu_nios2_qsys_0:nios2_qsys_0|embcpu_nios2_qsys_0_nios2_oci:the_embcpu_nios2_qsys_0_nios2_oci|embcpu_nios2_qsys_0_nios2_ocimem:the_embcpu_nios2_qsys_0_nios2_ocimem|embcpu_nios2_qsys_0_ociram_sp_ram_module:embcpu_nios2_qsys_0_ociram_sp_ram|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_g581.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|my1_top|embcpu:niosinst|embcpu_nios2_qsys_0:nios2_qsys_0|embcpu_nios2_qsys_0_register_bank_a_module:embcpu_nios2_qsys_0_register_bank_a|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_cog1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|my1_top|embcpu:niosinst|embcpu_nios2_qsys_0:nios2_qsys_0|embcpu_nios2_qsys_0_register_bank_b_module:embcpu_nios2_qsys_0_register_bank_b|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_dog1.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|my1_top|embcpu:niosinst|embcpu_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_aqc1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|my1_top|embcpumem:niosinst|embcpumem_nios2_qsys_0:nios2_qsys_0|embcpumem_nios2_qsys_0_nios2_oci:the_embcpumem_nios2_qsys_0_nios2_oci|embcpumem_nios2_qsys_0_nios2_ocimem:the_embcpumem_nios2_qsys_0_nios2_ocimem|embcpumem_nios2_qsys_0_ociram_sp_ram_module:embcpumem_nios2_qsys_0_ociram_sp_ram|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_ff81.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|my1_top|embcpumem:niosinst|embcpumem_nios2_qsys_0:nios2_qsys_0|embcpumem_nios2_qsys_0_register_bank_a_module:embcpumem_nios2_qsys_0_register_bank_a|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_b2h1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|my1_top|embcpumem:niosinst|embcpumem_nios2_qsys_0:nios2_qsys_0|embcpumem_nios2_qsys_0_register_bank_b_module:embcpumem_nios2_qsys_0_register_bank_b|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_c2h1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|my1_top|embcpumem:niosinst|embcpumem_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram" CBX_FILE_NAME="altsyncram_35d1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>
