@@ -233,7 +233,7 @@ module embcpumem_new_sdram_controller_0 (
   wire    [ 41: 0] fifo_read_data;
   reg     [ 11: 0] i_addr;
   reg     [  3: 0] i_cmd;
-  reg     [  1: 0] i_count;
+  reg     [  2: 0] i_count;
   reg     [  2: 0] i_next;
   reg     [  2: 0] i_refs;
   reg     [  2: 0] i_state;
@@ -241,7 +241,7 @@ module embcpumem_new_sdram_controller_0 (
   reg     [ 11: 0] m_addr /* synthesis ALTERA_ATTRIBUTE = "FAST_OUTPUT_REGISTER=ON"  */;
   reg     [  1: 0] m_bank /* synthesis ALTERA_ATTRIBUTE = "FAST_OUTPUT_REGISTER=ON"  */;
   reg     [  3: 0] m_cmd /* synthesis ALTERA_ATTRIBUTE = "FAST_OUTPUT_REGISTER=ON"  */;
-  reg     [  1: 0] m_count;
+  reg     [  2: 0] m_count;
   reg     [ 15: 0] m_data /* synthesis ALTERA_ATTRIBUTE = "FAST_OUTPUT_REGISTER=ON ; FAST_OUTPUT_ENABLE_REGISTER=ON"  */;
   reg     [  1: 0] m_dqm /* synthesis ALTERA_ATTRIBUTE = "FAST_OUTPUT_REGISTER=ON"  */;
   reg     [  8: 0] m_next;
@@ -250,7 +250,7 @@ module embcpumem_new_sdram_controller_0 (
   wire             pending;
   wire             rd_strobe;
   reg     [  2: 0] rd_valid;
-  reg     [ 10: 0] refresh_counter;
+  reg     [ 12: 0] refresh_counter;
   reg              refresh_request;
   wire             rnw_match;
   wire             row_match;
@@ -300,9 +300,9 @@ module embcpumem_new_sdram_controller_0 (
   always @(posedge clk or negedge reset_n)
     begin
       if (reset_n == 0)
-          refresh_counter <= 2000;
+          refresh_counter <= 5273;
       else if (refresh_counter == 0)
-          refresh_counter <= 312;
+          refresh_counter <= 823;
       else 
         refresh_counter <= refresh_counter - 1'b1;
     end
@@ -347,7 +347,7 @@ module embcpumem_new_sdram_controller_0 (
           i_next <= 3'b000;
           i_cmd <= 4'b1111;
           i_addr <= {12{1'b1}};
-          i_count <= {2{1'b0}};
+          i_count <= {3{1'b0}};
         end
       else 
         begin
@@ -365,7 +365,7 @@ module embcpumem_new_sdram_controller_0 (
               3'b001: begin
                   i_state <= 3'b011;
                   i_cmd <= {{1{1'b0}},3'h2};
-                  i_count <= 0;
+                  i_count <= 1;
                   i_next <= 3'b010;
               end // 3'b001 
           
@@ -373,7 +373,7 @@ module embcpumem_new_sdram_controller_0 (
                   i_cmd <= {{1{1'b0}},3'h1};
                   i_refs <= i_refs + 1'b1;
                   i_state <= 3'b011;
-                  i_count <= 1;
+                  i_count <= 3;
                   // Count up init_refresh_commands
                   if (i_refs == 3'h1)
                       i_next <= 3'b111;
@@ -398,7 +398,7 @@ module embcpumem_new_sdram_controller_0 (
                   i_state <= 3'b011;
                   i_cmd <= {{1{1'b0}},3'h0};
                   i_addr <= {{2{1'b0}},1'b0,2'b00,3'h3,4'h0};
-                  i_count <= 3;
+                  i_count <= 4;
                   i_next <= 3'b101;
               end // 3'b111 
           
@@ -430,7 +430,7 @@ module embcpumem_new_sdram_controller_0 (
           m_addr <= 12'b000000000000;
           m_data <= 16'b0000000000000000;
           m_dqm <= 2'b00;
-          m_count <= 2'b00;
+          m_count <= 3'b000;
           ack_refresh_request <= 1'b0;
           f_pop <= 1'b0;
           oe <= 1'b0;
@@ -456,7 +456,7 @@ module embcpumem_new_sdram_controller_0 (
                         begin
                           m_state <= 9'b001000000;
                           m_next <= 9'b010000000;
-                          m_count <= 0;
+                          m_count <= 1;
                           active_cs_n <= 1'b1;
                         end
                       else if (!f_empty)
@@ -486,7 +486,7 @@ module embcpumem_new_sdram_controller_0 (
                   m_addr <= active_addr[21 : 10];
                   m_data <= active_data;
                   m_dqm <= active_dqm;
-                  m_count <= 1;
+                  m_count <= 2;
                   m_next <= active_rnw ? 9'b000001000 : 9'b000010000;
               end // 9'b000000010 
           
@@ -584,7 +584,7 @@ module embcpumem_new_sdram_controller_0 (
                   else 
                     begin
                       m_state <= 9'b001000000;
-                      m_count <= 0;
+                      m_count <= 1;
                     end
               end // 9'b000100000 
           
@@ -602,7 +602,7 @@ module embcpumem_new_sdram_controller_0 (
                   ack_refresh_request <= 1'b1;
                   m_state <= 9'b000000100;
                   m_cmd <= {{1{1'b0}},3'h1};
-                  m_count <= 1;
+                  m_count <= 3;
                   m_next <= 9'b000000001;
               end // 9'b010000000 
           
