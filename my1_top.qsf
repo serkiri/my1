@@ -128,12 +128,10 @@ set_location_assignment PIN_95 -to pMemCke
 
 set_global_assignment -name RESERVE_ASDO_AFTER_CONFIGURATION "USE AS REGULAR IO"
 set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
-set_global_assignment -name QIP_FILE software/embcpumem/mem_init/meminit.qip
-set_global_assignment -name VHDL_FILE embcpumem/synthesis/submodules/simple_vga.vhd
+set_global_assignment -name QIP_FILE software/embcpudirect/mem_init/meminit.qip
 set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/embcpumem_rsp_xbar_mux_001.sv
 set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/embcpumem_rsp_xbar_mux.sv
 set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/embcpumem_rsp_xbar_demux_002.sv
-set_global_assignment -name VERILOG_FILE embcpumem/synthesis/submodules/embcpumem_pio_0.v
 set_global_assignment -name VERILOG_FILE embcpumem/synthesis/submodules/embcpumem_onchip_memory2_0.v
 set_global_assignment -name VERILOG_FILE embcpumem/synthesis/submodules/embcpumem_nios2_qsys_0_test_bench.v
 set_global_assignment -name VERILOG_FILE embcpumem/synthesis/submodules/embcpumem_nios2_qsys_0_oci_test_bench.v
@@ -151,6 +149,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/em
 set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/embcpumem_cmd_xbar_demux.sv
 set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/embcpumem_addr_router_001.sv
 set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/embcpumem_addr_router.sv
+set_global_assignment -name VHDL_FILE embcpumem/synthesis/submodules/direct_vga.vhd
 set_global_assignment -name VERILOG_FILE embcpumem/synthesis/submodules/altera_reset_synchronizer.v
 set_global_assignment -name VERILOG_FILE embcpumem/synthesis/submodules/altera_reset_controller.v
 set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/altera_merlin_width_adapter.sv
@@ -165,9 +164,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/al
 set_global_assignment -name VERILOG_FILE embcpumem/synthesis/submodules/altera_avalon_sc_fifo.v
 set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_width_adapter_001.vhd
 set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_width_adapter.vhd
-set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_rst_controller_001.vhd
-set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_rst_controller.vhd
-set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_pio_0_s1_translator.vhd
 set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_onchip_memory2_0_s1_translator.vhd
 set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_nios2_qsys_0_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo.vhd
 set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_nios2_qsys_0_jtag_debug_module_translator_avalon_universal_slave_0_agent.vhd
@@ -178,6 +174,7 @@ set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_new_sdram_co
 set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_new_sdram_controller_0_s1_translator_avalon_universal_slave_0_agent_rdata_fifo.vhd
 set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_new_sdram_controller_0_s1_translator_avalon_universal_slave_0_agent.vhd
 set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_new_sdram_controller_0_s1_translator.vhd
+set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem_direct_vga_0_s1_translator.vhd
 set_global_assignment -name VHDL_FILE embcpumem/synthesis/embcpumem.vhd
 set_global_assignment -name VHDL_FILE vgaClock.vhd
 set_global_assignment -name VHDL_FILE my2.vhd

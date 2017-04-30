@@ -47,7 +47,7 @@ module embcpumem_addr_router_default_decode
      parameter DEFAULT_CHANNEL = 1,
                DEFAULT_WR_CHANNEL = -1,
                DEFAULT_RD_CHANNEL = -1,
-               DEFAULT_DESTID = 2 
+               DEFAULT_DESTID = 3 
    )
   (output [85 - 84 : 0] default_destination_id,
    output [4-1 : 0] default_wr_channel,
@@ -189,13 +189,13 @@ module embcpumem_addr_router
     // ( 0x1004000 .. 0x1008000 )
     if ( {address[RG:PAD0],{PAD0{1'b0}}} == 25'h1004000   ) begin
             src_channel = 4'b10;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
     end
 
     // ( 0x1008800 .. 0x1009000 )
     if ( {address[RG:PAD1],{PAD1{1'b0}}} == 25'h1008800   ) begin
             src_channel = 4'b01;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
+            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
 end

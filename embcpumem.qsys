@@ -24,7 +24,15 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "4";
+         type = "int";
+      }
+   }
+   element direct_vga_0
+   {
+      datum _sortIndex
+      {
+         value = "5";
          type = "int";
       }
    }
@@ -40,7 +48,7 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "3";
          type = "int";
       }
    }
@@ -60,27 +68,11 @@
          type = "int";
       }
    }
-   element pio_0
-   {
-      datum _sortIndex
-      {
-         value = "3";
-         type = "int";
-      }
-   }
-   element pio_0.s1
+   element direct_vga_0.s1
    {
       datum baseAddress
       {
          value = "16814080";
-         type = "String";
-      }
-   }
-   element new_sdram_controller_0.s1
-   {
-      datum baseAddress
-      {
-         value = "0";
          type = "String";
       }
    }
@@ -92,12 +84,12 @@
          type = "String";
       }
    }
-   element simple_vga_0
+   element new_sdram_controller_0.s1
    {
-      datum _sortIndex
+      datum baseAddress
       {
-         value = "5";
-         type = "int";
+         value = "0";
+         type = "String";
       }
    }
 }
@@ -115,7 +107,7 @@
  <parameter name="projectName" value="my1.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1493031907776" />
+ <parameter name="timeStamp" value="1493134512144" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
@@ -126,15 +118,16 @@
    type="conduit"
    dir="end" />
  <interface
-   name="simple_vga"
-   internal="simple_vga_0.out_vga"
-   type="conduit"
-   dir="end" />
- <interface
    name="vga_clock"
    internal="clock_bridge_0.in_clk"
    type="clock"
    dir="end" />
+ <interface
+   name="simple_vga"
+   internal="direct_vga_0.out_vga"
+   type="conduit"
+   dir="end" />
+ <interface name="simple_vgaf" internal="direct_vga_0.simple_vga" />
  <module kind="clock_source" version="13.0" enabled="1" name="clk_0">
   <parameter name="clockFrequency" value="52727273" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -247,7 +240,7 @@
   <parameter name="tightlyCoupledInstructionMaster2AddrWidth" value="1" />
   <parameter name="tightlyCoupledInstructionMaster3AddrWidth" value="1" />
   <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x1004000' end='0x1008000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x1008800' end='0x1009000' /></address-map>]]></parameter>
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='new_sdram_controller_0.s1' start='0x0' end='0x1000000' /><slave name='onchip_memory2_0.s1' start='0x1004000' end='0x1008000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x1008800' end='0x1009000' /><slave name='pio_0.s1' start='0x1009000' end='0x1009020' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='new_sdram_controller_0.s1' start='0x0' end='0x1000000' /><slave name='onchip_memory2_0.s1' start='0x1004000' end='0x1008000' /><slave name='nios2_qsys_0.jtag_debug_module' start='0x1008800' end='0x1009000' /><slave name='direct_vga_0.s1' start='0x1009000' end='0x1009004' /></address-map>]]></parameter>
   <parameter name="clockFrequency" value="52727273" />
   <parameter name="deviceFamilyName" value="Cyclone II" />
   <parameter name="internalIrqMaskSystemInfo" value="0" />
@@ -317,27 +310,6 @@
   <parameter name="clockRate" value="52727273" />
   <parameter name="componentName">$${FILENAME}_new_sdram_controller_0</parameter>
  </module>
- <module kind="simple_vga" version="1.0" enabled="1" name="simple_vga_0">
-  <parameter name="AUTO_CLOCK_SINK_CLOCK_RATE" value="25000000" />
- </module>
- <module
-   kind="altera_avalon_pio"
-   version="13.0.1.99.2"
-   enabled="1"
-   name="pio_0">
-  <parameter name="bitClearingEdgeCapReg" value="false" />
-  <parameter name="bitModifyingOutReg" value="true" />
-  <parameter name="captureEdge" value="false" />
-  <parameter name="direction" value="Output" />
-  <parameter name="edgeType" value="RISING" />
-  <parameter name="generateIRQ" value="false" />
-  <parameter name="irqType" value="LEVEL" />
-  <parameter name="resetValue" value="5" />
-  <parameter name="simDoTestBenchWiring" value="false" />
-  <parameter name="simDrivenValue" value="0" />
-  <parameter name="width" value="8" />
-  <parameter name="clockRate" value="52727273" />
- </module>
  <module
    kind="altera_clock_bridge"
    version="13.0"
@@ -346,6 +318,10 @@
   <parameter name="DERIVED_CLOCK_RATE" value="0" />
   <parameter name="EXPLICIT_CLOCK_RATE" value="25000000" />
   <parameter name="NUM_CLOCK_OUTPUTS" value="1" />
+ </module>
+ <module kind="direct_vga" version="1.0" enabled="1" name="direct_vga_0">
+  <parameter name="AUTO_VGA_CLOCK_CLOCK_RATE" value="25000000" />
+  <parameter name="AUTO_NIOS_CLOCK_CLOCK_RATE" value="52727273" />
  </module>
  <connection
    kind="avalon"
@@ -422,34 +398,26 @@
    kind="reset"
    version="13.0"
    start="clk_0.clk_reset"
-   end="simple_vga_0.reset_sink" />
- <connection kind="clock" version="13.0" start="clk_0.clk" end="pio_0.clk" />
- <connection kind="reset" version="13.0" start="clk_0.clk_reset" end="pio_0.reset" />
+   end="direct_vga_0.reset_sink" />
  <connection
    kind="avalon"
    version="13.0"
    start="nios2_qsys_0.data_master"
-   end="pio_0.s1">
+   end="direct_vga_0.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x01009000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
-   kind="conduit"
+   kind="clock"
    version="13.0"
-   start="pio_0.external_connection"
-   end="simple_vga_0.in_leds">
-  <parameter name="endPort" value="" />
-  <parameter name="endPortLSB" value="0" />
-  <parameter name="startPort" value="" />
-  <parameter name="startPortLSB" value="0" />
-  <parameter name="width" value="0" />
- </connection>
+   start="clk_0.clk"
+   end="direct_vga_0.nios_clock" />
  <connection
    kind="clock"
    version="13.0"
    start="clock_bridge_0.out_clk"
-   end="simple_vga_0.clock_sink" />
+   end="direct_vga_0.vga_clock" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>

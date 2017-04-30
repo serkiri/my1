@@ -2,12 +2,16 @@ set_global_assignment -entity "embcpumem" -library "embcpumem" -name IP_TOOL_NAM
 set_global_assignment -entity "embcpumem" -library "embcpumem" -name IP_TOOL_VERSION "13.0sp1"
 set_global_assignment -entity "embcpumem" -library "embcpumem" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "embcpumem" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../embcpumem.sopcinfo"]
-set_instance_assignment -entity "embcpumem" -library "embcpumem" -name SLD_INFO "QSYS_NAME embcpumem HAS_SOPCINFO 1 GENERATION_ID 1493033800"
+set_instance_assignment -entity "embcpumem" -library "embcpumem" -name SLD_INFO "QSYS_NAME embcpumem HAS_SOPCINFO 1 GENERATION_ID 1493143507"
 set_global_assignment -library "embcpumem" -name MISC_FILE [file join $::quartus(qip_path) "../../embcpumem.cmp"]
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON
 set_global_assignment -library "embcpumem" -name MISC_FILE [file join $::quartus(qip_path) "../../embcpumem.qsys"]
 
 set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem.vhd"]
+set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_nios2_qsys_0_jtag_debug_module_translator.vhd"]
+set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_onchip_memory2_0_s1_translator.vhd"]
+set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_new_sdram_controller_0_s1_translator.vhd"]
+set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_direct_vga_0_s1_translator.vhd"]
 set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_nios2_qsys_0_jtag_debug_module_translator_avalon_universal_slave_0_agent_rsp_fifo.vhd"]
 set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_new_sdram_controller_0_s1_translator_avalon_universal_slave_0_agent_rsp_fifo.vhd"]
 set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_new_sdram_controller_0_s1_translator_avalon_universal_slave_0_agent_rdata_fifo.vhd"]
@@ -17,12 +21,6 @@ set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus
 set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_width_adapter_001.vhd"]
 set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_nios2_qsys_0_instruction_master_translator.vhd"]
 set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_nios2_qsys_0_data_master_translator.vhd"]
-set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_nios2_qsys_0_jtag_debug_module_translator.vhd"]
-set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_onchip_memory2_0_s1_translator.vhd"]
-set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_new_sdram_controller_0_s1_translator.vhd"]
-set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_pio_0_s1_translator.vhd"]
-set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_rst_controller.vhd"]
-set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "embcpumem_rst_controller_001.vhd"]
 set_global_assignment -library "embcpumem" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/embcpumem_irq_mapper.sv"]
 set_global_assignment -library "embcpumem" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_width_adapter.sv"]
 set_global_assignment -library "embcpumem" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_address_alignment.sv"]
@@ -48,8 +46,7 @@ set_global_assignment -library "embcpumem" -name SYSTEMVERILOG_FILE [file join $
 set_global_assignment -library "embcpumem" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_agent.sv"]
 set_global_assignment -library "embcpumem" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_slave_translator.sv"]
 set_global_assignment -library "embcpumem" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_merlin_master_translator.sv"]
-set_global_assignment -library "embcpumem" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/embcpumem_pio_0.v"]
-set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/simple_vga.vhd"]
+set_global_assignment -library "embcpumem" -name VHDL_FILE [file join $::quartus(qip_path) "submodules/direct_vga.vhd"]
 set_global_assignment -library "embcpumem" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/embcpumem_new_sdram_controller_0.v"]
 set_global_assignment -library "embcpumem" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/embcpumem_onchip_memory2_0.hex"]
 set_global_assignment -library "embcpumem" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/embcpumem_onchip_memory2_0.v"]
@@ -124,9 +121,6 @@ set_global_assignment -entity "altera_merlin_slave_translator" -library "embcpum
 set_global_assignment -entity "altera_merlin_master_translator" -library "embcpumem" -name IP_TOOL_NAME "altera_merlin_master_translator"
 set_global_assignment -entity "altera_merlin_master_translator" -library "embcpumem" -name IP_TOOL_VERSION "13.0"
 set_global_assignment -entity "altera_merlin_master_translator" -library "embcpumem" -name IP_TOOL_ENV "Qsys"
-set_global_assignment -entity "embcpumem_pio_0" -library "embcpumem" -name IP_TOOL_NAME "altera_avalon_pio"
-set_global_assignment -entity "embcpumem_pio_0" -library "embcpumem" -name IP_TOOL_VERSION "13.0.1.99.2"
-set_global_assignment -entity "embcpumem_pio_0" -library "embcpumem" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -entity "embcpumem_new_sdram_controller_0" -library "embcpumem" -name IP_TOOL_NAME "altera_avalon_new_sdram_controller"
 set_global_assignment -entity "embcpumem_new_sdram_controller_0" -library "embcpumem" -name IP_TOOL_VERSION "13.0.1.99.2"
 set_global_assignment -entity "embcpumem_new_sdram_controller_0" -library "embcpumem" -name IP_TOOL_ENV "Qsys"

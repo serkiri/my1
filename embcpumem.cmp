@@ -11,12 +11,12 @@
 			new_sdram_controller_0_wire_dqm   : out   std_logic_vector(1 downto 0);                     -- dqm
 			new_sdram_controller_0_wire_ras_n : out   std_logic;                                        -- ras_n
 			new_sdram_controller_0_wire_we_n  : out   std_logic;                                        -- we_n
+			vga_clock_clk                     : in    std_logic                     := 'X';             -- clk
 			simple_vga_r                      : out   std_logic_vector(7 downto 0);                     -- r
 			simple_vga_g                      : out   std_logic_vector(7 downto 0);                     -- g
 			simple_vga_b                      : out   std_logic_vector(7 downto 0);                     -- b
 			simple_vga_hsync                  : out   std_logic;                                        -- hsync
-			simple_vga_vsync                  : out   std_logic;                                        -- vsync
-			vga_clock_clk                     : in    std_logic                     := 'X'              -- clk
+			simple_vga_vsync                  : out   std_logic                                         -- vsync
 		);
 	end component embcpumem;
 
