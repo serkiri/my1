@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="19c0ffc869a75ee8fe61"/>
+    <hash md5_digest_80b="63bfc5f0db3e4d8c59a9"/>
   </project>
   <file_info>
     <file device="EP2C8Q208C8" path="my1_top.sof" usercode="0xFFFFFFFF"/>
@@ -85,7 +85,7 @@
   <sld_infos>
     <sld_info hpath="embcpumem:niosinst" name="niosinst">
       <assignment_values>
-        <assignment_value text="QSYS_NAME embcpumem HAS_SOPCINFO 1 GENERATION_ID 1493991979"/>
+        <assignment_value text="QSYS_NAME embcpumem HAS_SOPCINFO 1 GENERATION_ID 1494005822"/>
       </assignment_values>
       <parameters/>
     </sld_info>

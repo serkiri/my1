@@ -34,11 +34,14 @@ architecture behavior of direct_vga is
 	signal hPos : integer := 0;
 	signal vPos : integer := 0;
 	
+	signal frame_irq_wdt : integer := 0;
+	
 	signal in_leds : std_logic_vector(31 downto 0) := "10101010101010101010101010101010";
 	signal control : std_logic_vector(31 downto 0) := "00000000000000000000000000000000"; -- 0 - clear frame irq
 	
 	signal start_frame : std_logic := '0';
 	signal reset_frame_irq : std_logic := '0';
+	signal frame_irq_signal : std_logic := '0';
 	
 	TYPE STATE_TYPE IS (s1, s2);
 	SIGNAL state   : STATE_TYPE;
@@ -50,6 +53,7 @@ begin
 	if reset = '1' then
 		in_leds <= std_logic_vector(to_unsigned(0,32));  
 		control <= std_logic_vector(to_unsigned(0,32));
+		frame_irq_wdt <= 0;
 	elsif rising_edge(nios_clock) then
 		if write_req = '1' then
 			case address is
@@ -57,12 +61,22 @@ begin
 					in_leds <= writedata;
 				when "1" =>
 					control <= writedata;
+					if (writedata(0) = '1') then
+						frame_irq_wdt <= 0;
+					end if;
 			end case;
+		end if;
+		if (frame_irq_wdt = 31) then
+			control(0) <= '0';
+			frame_irq_wdt <= 0;
+		else
+			frame_irq_wdt <= frame_irq_wdt + 1;
 		end if;
 	end if;
 end process;
 
 reset_frame_irq <= control(0);
+frame_irq <= frame_irq_signal;
 
 start_frame_process:process(hPos, vPos)
 begin
@@ -99,9 +113,9 @@ PROCESS (state)
    BEGIN
       CASE state IS
          WHEN s1 =>
-            frame_irq <= start_frame;
+            frame_irq_signal <= start_frame;
          WHEN s2 =>
-            frame_irq <= '0';
+            frame_irq_signal <= '0';
       END CASE;
 END PROCESS;
 
@@ -155,9 +169,9 @@ end process;
 draw:process(vga_clock, hPos, vPos)
 begin
 	if(vga_clock'event and vga_clock = '1')then
-			if(hPos = 0 or hPos = 639 or vPos = 0 or vPos = 479)then
+			if(frame_irq_signal = '1')then
 				video_r <= "01111111";
-				video_g <= "00000000";
+				video_g <= "01111111";
 				video_b <= "01111111";
 			elsif((hPos >= 11 and hPos <= 59) AND (vPos >= 11 and vPos <= 59))then
 				if (in_leds(31) = '1') then 

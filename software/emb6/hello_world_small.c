@@ -93,7 +93,7 @@ static void vga_isr (void * context)
 {
 	count++;
 	*control_addr = 0x1;
-	*control_addr = 0x0;
+//	*control_addr = 0x0;
 }
 
 

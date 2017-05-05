@@ -15,7 +15,7 @@
   </columns>
  </clocktable>
  <library expandedCategories="Library,Project/my own components,Project" />
- <window width="1720" height="921" x="-8" y="0" />
+ <window width="1720" height="921" x="0" y="0" />
  <hdlexample language="VHDL" />
  <generation synthesis="VHDL" />
 </preferences>
