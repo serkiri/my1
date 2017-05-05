@@ -40,7 +40,7 @@ architecture behavior of direct_vga is
 	signal start_frame : std_logic := '0';
 	signal reset_frame_irq : std_logic := '0';
 	
-	TYPE STATE_TYPE IS (s0, s1, s2);
+	TYPE STATE_TYPE IS (s1, s2);
 	SIGNAL state   : STATE_TYPE;
 	
 begin
@@ -76,26 +76,18 @@ end process;
 PROCESS (vga_clock, reset)
    BEGIN
       IF reset = '1' THEN
-         state <= s0;
+         state <= s1;
       ELSIF (vga_clock'EVENT AND vga_clock = '1') THEN
          CASE state IS
-            WHEN s0=>
-               IF start_frame = '1' THEN
-                  state <= s1;
-               ELSE
-                  state <= s0;
-               END IF;
-            WHEN s1=>
-				if start_frame = '0' then 
-                  state <= s0;
-               elsif reset_frame_irq = '1' THEN
+             WHEN s1=>
+               if reset_frame_irq = '1' THEN
                   state <= s2;
                ELSE
                   state <= s1;
                END IF;
             WHEN s2=>
                IF start_frame = '0' THEN
-                  state <= s0;
+                  state <= s1;
                ELSE
                   state <= s2;
                END IF;
@@ -106,10 +98,8 @@ END PROCESS;
 PROCESS (state)
    BEGIN
       CASE state IS
-         WHEN s0 =>
-            frame_irq <= '0';
          WHEN s1 =>
-            frame_irq <= '1';
+            frame_irq <= start_frame;
          WHEN s2 =>
             frame_irq <= '0';
       END CASE;
@@ -167,8 +157,8 @@ begin
 	if(vga_clock'event and vga_clock = '1')then
 			if(hPos = 0 or hPos = 639 or vPos = 0 or vPos = 479)then
 				video_r <= "01111111";
-				video_g <= "01111111";
-				video_b <= "01111111";
+				video_g <= "00000000";
+				video_b <= "00000000";
 			elsif((hPos >= 11 and hPos <= 59) AND (vPos >= 11 and vPos <= 59))then
 				if (in_leds(31) = '1') then 
 					video_r <= "01111111";
