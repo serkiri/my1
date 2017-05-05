@@ -139,13 +139,13 @@ module embcpumem_addr_router_001
     localparam PAD0 = log2ceil(64'h1000000 - 64'h0); 
     localparam PAD1 = log2ceil(64'h1008000 - 64'h1004000); 
     localparam PAD2 = log2ceil(64'h1009000 - 64'h1008800); 
-    localparam PAD3 = log2ceil(64'h1009004 - 64'h1009000); 
+    localparam PAD3 = log2ceil(64'h1009008 - 64'h1009000); 
     // -------------------------------------------------------
     // Work out which address bits are significant based on the
     // address range of the slaves. If the required width is too
     // large or too small, we use the address field width instead.
     // -------------------------------------------------------
-    localparam ADDR_RANGE = 64'h1009004;
+    localparam ADDR_RANGE = 64'h1009008;
     localparam RANGE_ADDR_WIDTH = log2ceil(ADDR_RANGE);
     localparam OPTIMIZED_ADDR_H = (RANGE_ADDR_WIDTH > PKT_ADDR_W) ||
                                   (RANGE_ADDR_WIDTH == 0) ?
@@ -206,7 +206,7 @@ module embcpumem_addr_router_001
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
     end
 
-    // ( 0x1009000 .. 0x1009004 )
+    // ( 0x1009000 .. 0x1009008 )
     if ( {address[RG:PAD3],{PAD3{1'b0}}} == 25'h1009000   ) begin
             src_channel = 4'b1000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;

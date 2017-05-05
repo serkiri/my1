@@ -128,7 +128,7 @@ set_location_assignment PIN_95 -to pMemCke
 
 set_global_assignment -name RESERVE_ASDO_AFTER_CONFIGURATION "USE AS REGULAR IO"
 set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
-set_global_assignment -name QIP_FILE software/embcpudirect/mem_init/meminit.qip
+set_global_assignment -name QIP_FILE software/emb5/mem_init/meminit.qip
 set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/embcpumem_rsp_xbar_mux_001.sv
 set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/embcpumem_rsp_xbar_mux.sv
 set_global_assignment -name SYSTEMVERILOG_FILE embcpumem/synthesis/submodules/embcpumem_rsp_xbar_demux_002.sv

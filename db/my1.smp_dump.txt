@@ -1,4 +1,10 @@
 
+State Machine - |my1_top|embcpumem:niosinst|direct_vga:direct_vga_0|state
+Name state.s2 state.s1 state.s0 
+state.s0 0 0 0 
+state.s1 0 1 1 
+state.s2 1 0 1 
+
 State Machine - |my1_top|embcpumem:niosinst|embcpumem_new_sdram_controller_0:new_sdram_controller_0|m_next
 Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 
 m_next.000000001 0 0 0 0 

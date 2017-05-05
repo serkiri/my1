@@ -9,11 +9,13 @@ entity direct_vga is
 		reset			: in std_logic;
 		write_req		: in  std_logic;
 		writedata		: in  std_logic_vector(31 downto 0);
+		address			: in	std_logic_vector(0 downto 0);
 		video_r			: out std_logic_vector(7 downto 0) := "01111111";
 		video_g			: out std_logic_vector(7 downto 0) := "01111111";
 		video_b			: out std_logic_vector(7 downto 0) := "01111111";
 		video_hsync		: out std_logic := '1';
-		video_vsync		: out std_logic := '1'
+		video_vsync		: out std_logic := '1';
+		frame_irq		: out std_logic := '0'
 	);
 end direct_vga;
 
@@ -33,19 +35,85 @@ architecture behavior of direct_vga is
 	signal vPos : integer := 0;
 	
 	signal in_leds : std_logic_vector(31 downto 0) := "10101010101010101010101010101010";
+	signal control : std_logic_vector(31 downto 0) := "00000000000000000000000000000000"; -- 0 - clear frame irq
+	
+	signal start_frame : std_logic := '0';
+	signal reset_frame_irq : std_logic := '0';
+	
+	TYPE STATE_TYPE IS (s0, s1, s2);
+	SIGNAL state   : STATE_TYPE;
 	
 begin
 
 regs: process(nios_clock,reset,write_req,writedata) is
 begin
 	if reset = '1' then
-		in_leds <= std_logic_vector(to_unsigned(0,32));  --register for framebuffer base address
+		in_leds <= std_logic_vector(to_unsigned(0,32));  
+		control <= std_logic_vector(to_unsigned(0,32));
 	elsif rising_edge(nios_clock) then
 		if write_req = '1' then
-			in_leds <= writedata;
+			case address is
+				when "0" =>
+					in_leds <= writedata;
+				when "1" =>
+					control <= writedata;
+			end case;
 		end if;
 	end if;
 end process;
+
+reset_frame_irq <= control(0);
+
+start_frame_process:process(hPos, vPos)
+begin
+	if((hPos < 400) and (vPos = 0))then
+		start_frame <= '1';
+	else
+		start_frame <= '0';
+	end if;
+end process;
+
+PROCESS (vga_clock, reset)
+   BEGIN
+      IF reset = '1' THEN
+         state <= s0;
+      ELSIF (vga_clock'EVENT AND vga_clock = '1') THEN
+         CASE state IS
+            WHEN s0=>
+               IF start_frame = '1' THEN
+                  state <= s1;
+               ELSE
+                  state <= s0;
+               END IF;
+            WHEN s1=>
+				if start_frame = '0' then 
+                  state <= s0;
+               elsif reset_frame_irq = '1' THEN
+                  state <= s2;
+               ELSE
+                  state <= s1;
+               END IF;
+            WHEN s2=>
+               IF start_frame = '0' THEN
+                  state <= s0;
+               ELSE
+                  state <= s2;
+               END IF;
+         END CASE;
+      END IF;
+END PROCESS;
+
+PROCESS (state)
+   BEGIN
+      CASE state IS
+         WHEN s0 =>
+            frame_irq <= '0';
+         WHEN s1 =>
+            frame_irq <= '1';
+         WHEN s2 =>
+            frame_irq <= '0';
+      END CASE;
+END PROCESS;
 
 Horizontal_position_counter:process(vga_clock)
 begin

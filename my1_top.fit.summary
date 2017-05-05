@@ -1,14 +1,14 @@
-Fitter Status : Successful - Thu Apr 27 19:17:35 2017
+Fitter Status : Successful - Fri May 05 11:29:58 2017
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : my1_top
 Top-level Entity Name : my1_top
 Family : Cyclone II
 Device : EP2C8Q208C8
 Timing Models : Final
-Total logic elements : 2,327 / 8,256 ( 28 % )
-    Total combinational functions : 2,095 / 8,256 ( 25 % )
-    Dedicated logic registers : 1,339 / 8,256 ( 16 % )
-Total registers : 1407
+Total logic elements : 2,343 / 8,256 ( 28 % )
+    Total combinational functions : 2,105 / 8,256 ( 25 % )
+    Dedicated logic registers : 1,349 / 8,256 ( 16 % )
+Total registers : 1417
 Total pins : 65 / 138 ( 47 % )
 Total virtual pins : 0
 Total memory bits : 141,312 / 165,888 ( 85 % )
