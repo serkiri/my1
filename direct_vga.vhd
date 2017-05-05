@@ -158,7 +158,7 @@ begin
 			if(hPos = 0 or hPos = 639 or vPos = 0 or vPos = 479)then
 				video_r <= "01111111";
 				video_g <= "00000000";
-				video_b <= "00000000";
+				video_b <= "01111111";
 			elsif((hPos >= 11 and hPos <= 59) AND (vPos >= 11 and vPos <= 59))then
 				if (in_leds(31) = '1') then 
 					video_r <= "01111111";
